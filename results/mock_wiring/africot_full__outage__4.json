@@ -1,0 +1,189 @@
+{
+ "controller": "africot_full",
+ "scenario": "outage",
+ "seed": 4,
+ "seed_role": "evaluation",
+ "vlam_backend": "mock",
+ "reportable": false,
+ "metrics": {
+  "att": 87.98877551020408,
+  "awt": 25.278818800247365,
+  "att_completed": 88.03280757097792,
+  "awt_completed": 24.77665615141956,
+  "awt_by_class": {
+   "car": 25.670715705765407,
+   "danfo": 27.245889967637538,
+   "keke": 24.329601063829788,
+   "okada": 24.234428904428906
+  },
+  "awt_by_arm": {
+   "east": 17.11855795148248,
+   "south": 92.53055,
+   "west": 14.322622222222224
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5134366576819407,
+   "south": 0.53055,
+   "west": 0.49595555555555537
+  },
+  "throughput": 1623,
+  "vehicles_measured": 1617,
+  "completed_trips": 1585,
+  "unfinished": 30,
+  "not_inserted": 2,
+  "not_inserted_by_arm": {
+   "west": 2
+  },
+  "ped_wait": 11.686516853932584,
+  "ped_count": 890,
+  "aql": 10.456666666666667,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0,
+  "shield_interventions": 70,
+  "decisions": 228,
+  "safety_violations": 0,
+  "slow_loop_calls": 11,
+  "vlam_parse_failures": 0,
+  "novelty_triggers": 4
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 228,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 545,
+    "danfo": 330,
+    "keke": 406,
+    "okada": 474
+   },
+   "pedestrians": 946,
+   "scenario": "outage",
+   "seed": 4
+  },
+  "wall_s": 16.5,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 55,
+    "east": 40,
+    "south": 95,
+    "xS": 65,
+    "xE": 90,
+    "xW": 65
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 70
+  },
+  "wm_1step_queue_mae_mean": 1.1322799158277033,
+  "teleport_reasons": {},
+  "log_file": "logs/africot_full__outage__4__mock.jsonl",
+  "coordinator_events": [
+   {
+    "time": 635.0,
+    "event": "novelty_trigger",
+    "recent_error": 1.3339563818763782,
+    "median_prev": 0.6583782476897004
+   },
+   {
+    "time": 1208.0,
+    "event": "connectivity",
+    "from": "online",
+    "to": "offline_hold_last"
+   },
+   {
+    "time": 1820.0,
+    "event": "connectivity",
+    "from": "offline_hold_last",
+    "to": "offline_cached_schedule"
+   },
+   {
+    "time": 2413.0,
+    "event": "connectivity",
+    "from": "offline_cached_schedule",
+    "to": "online"
+   },
+   {
+    "time": 2800.0,
+    "event": "novelty_trigger",
+    "recent_error": 2.145585624823266,
+    "median_prev": 0.9482384189005211
+   },
+   {
+    "time": 2938.0,
+    "event": "novelty_trigger",
+    "recent_error": 2.5114737919554786,
+    "median_prev": 1.1455028082667718
+   },
+   {
+    "time": 3670.0,
+    "event": "novelty_trigger",
+    "recent_error": 1.4164091513025434,
+    "median_prev": 0.6716099567163262
+   }
+  ],
+  "vlam_latency_mean_s": 0.0
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 200
+   },
+   "mix": {
+    "car": 0.3,
+    "danfo": 0.2,
+    "keke": 0.25,
+    "okada": 0.25
+   },
+   "ped_per_h": 900,
+   "ped_split": {
+    "xE": 0.4,
+    "xW": 0.4,
+    "xS": 0.2
+   },
+   "context": "market day",
+   "outage": {
+    "start": 1200,
+    "end": 2400
+   }
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {},
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
+  },
+  "vlam_model": "mock-rules",
+  "planner": {
+   "horizon": 3,
+   "samples": 64,
+   "iterations": 4,
+   "elites": 8,
+   "green_mu": 30.0,
+   "green_sd": 15.0
+  },
+  "world_model": "models/world_model.pt",
+  "reportable": false
+ },
+ "git_hash": "06dfee73b2d79eebcae620c71f7069149a98c68c",
+ "created_utc": "2026-10-06T20:03:42Z"
+}
