@@ -1,0 +1,83 @@
+{
+ "controller": "fixed_time",
+ "scenario": "normal",
+ "seed": 3,
+ "seed_role": "evaluation",
+ "vlam_backend": null,
+ "metrics": {
+  "att": 123.82443216697361,
+  "awt": 51.49355432780847,
+  "awt_by_class": {
+   "car": 51.11140583554376,
+   "danfo": 56.96610169491525,
+   "keke": 40.86,
+   "okada": 55.53030303030303
+  },
+  "throughput": 1670,
+  "completed_trips": 1629,
+  "unfinished": 73,
+  "ped_wait": 18.674911660777386,
+  "ped_count": 283,
+  "aql": 25.24416666666667,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 135,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 863,
+    "danfo": 335,
+    "keke": 278,
+    "okada": 377
+   },
+   "pedestrians": 317,
+   "scenario": "normal",
+   "seed": 3
+  },
+  "wall_s": 6.4,
+  "teleport_reasons": {}
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 300
+   },
+   "mix": {
+    "car": 0.45,
+    "danfo": 0.2,
+    "keke": 0.15,
+    "okada": 0.2
+   },
+   "ped_per_h": 300,
+   "ped_split": {
+    "xE": 0.3333333333333333,
+    "xW": 0.3333333333333333,
+    "xS": 0.3333333333333333
+   },
+   "context": ""
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {
+   "GREENS": {
+    "A": 35,
+    "B": 12,
+    "C": 25
+   }
+  },
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  }
+ },
+ "git_hash": "434f55291f3607b082c2650f8803fc719a355c60",
+ "created_utc": "2026-10-06T18:24:49Z"
+}

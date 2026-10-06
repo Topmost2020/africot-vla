@@ -1,0 +1,82 @@
+{
+ "controller": "count_timer",
+ "scenario": "market",
+ "seed": 2,
+ "seed_role": "evaluation",
+ "vlam_backend": null,
+ "metrics": {
+  "att": 229.73773470623865,
+  "awt": 122.94003634161115,
+  "awt_by_class": {
+   "car": 120.59719438877755,
+   "danfo": 120.29283489096574,
+   "keke": 124.83417085427136,
+   "okada": 125.86143187066975
+  },
+  "throughput": 1726,
+  "completed_trips": 1651,
+  "unfinished": 113,
+  "ped_wait": 15.359002169197398,
+  "ped_count": 922,
+  "aql": 59.885555555555555,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 553,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 632,
+    "danfo": 409,
+    "keke": 515,
+    "okada": 551
+   },
+   "pedestrians": 1006,
+   "scenario": "market",
+   "seed": 2
+  },
+  "wall_s": 15.0,
+  "teleport_reasons": {}
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 550
+   },
+   "mix": {
+    "car": 0.3,
+    "danfo": 0.2,
+    "keke": 0.25,
+    "okada": 0.25
+   },
+   "ped_per_h": 900,
+   "ped_split": {
+    "xE": 0.4,
+    "xW": 0.4,
+    "xS": 0.2
+   },
+   "context": "market day"
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {
+   "MIN_GREEN": 10,
+   "STEP": 5,
+   "MAX_GREEN": 60,
+   "QUEUE_THRESHOLD": 3
+  },
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  }
+ },
+ "git_hash": "434f55291f3607b082c2650f8803fc719a355c60",
+ "created_utc": "2026-10-06T18:25:44Z"
+}

@@ -1,0 +1,89 @@
+{
+ "controller": "max_pressure",
+ "scenario": "incident",
+ "seed": 2,
+ "seed_role": "evaluation",
+ "vlam_backend": null,
+ "metrics": {
+  "att": 74.91766826923077,
+  "awt": 14.736177884615385,
+  "awt_by_class": {
+   "car": 14.451058201058201,
+   "danfo": 14.79940119760479,
+   "keke": 15.252136752136753,
+   "okada": 14.952941176470588
+  },
+  "throughput": 1703,
+  "completed_trips": 1664,
+  "unfinished": 36,
+  "ped_wait": 14.183279742765274,
+  "ped_count": 311,
+  "aql": 6.902777777777778,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 197,
+  "incident": {
+   "inserted": 1200.0,
+   "stopped": 1205.0,
+   "stop_pos": 41.8
+  },
+  "demand": {
+   "vehicles": {
+    "car": 828,
+    "danfo": 367,
+    "keke": 260,
+    "okada": 382
+   },
+   "pedestrians": 340,
+   "scenario": "incident",
+   "seed": 2
+  },
+  "wall_s": 5.1,
+  "teleport_reasons": {}
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 300
+   },
+   "mix": {
+    "car": 0.45,
+    "danfo": 0.2,
+    "keke": 0.15,
+    "okada": 0.2
+   },
+   "ped_per_h": 300,
+   "ped_split": {
+    "xE": 0.3333333333333333,
+    "xW": 0.3333333333333333,
+    "xS": 0.3333333333333333
+   },
+   "context": "incident reported on east approach",
+   "incident": {
+    "edge": "E2C",
+    "lane_index": 1,
+    "start": 1200,
+    "end": 2100
+   }
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {
+   "GREEN": 15
+  },
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  }
+ },
+ "git_hash": "434f55291f3607b082c2650f8803fc719a355c60",
+ "created_utc": "2026-10-06T18:26:39Z"
+}
