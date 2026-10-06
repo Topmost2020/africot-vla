@@ -36,6 +36,8 @@ def run_episode(controller, scenario, seed, end_s=sc.END_S, observe=None, step_h
         obs = observe(state) if observe else state
         proposal = controller.first()
         phase, green, corr = shield.check(proposal, obs)
+        if hasattr(controller, "note_applied"):
+            controller.note_applied(obs, phase, green)
         if decision_hook:
             decision_hook(env, obs, proposal, (phase, green), corr)
         while not env.done():
@@ -46,6 +48,8 @@ def run_episode(controller, scenario, seed, end_s=sc.END_S, observe=None, step_h
             obs = observe(state) if observe else state
             proposal = controller.decide(obs)
             phase, green, corr = shield.check(proposal, obs)
+            if hasattr(controller, "note_applied"):
+                controller.note_applied(obs, phase, green)
             if decision_hook:
                 decision_hook(env, obs, proposal, (phase, green), corr)
         info = {"teleports": env.teleports, "decisions": decisions,
@@ -59,6 +63,8 @@ def run_episode(controller, scenario, seed, end_s=sc.END_S, observe=None, step_h
             for c in entry["corrections"]:
                 by_rule[c["rule"]] = by_rule.get(c["rule"], 0) + 1
         info["shield_corrections_by_rule"] = by_rule
+        if getattr(controller, "wm_errors", None):
+            info["wm_1step_queue_mae_mean"] = float(sum(controller.wm_errors) / len(controller.wm_errors))
         tripinfo = env.finish()
         info["teleport_reasons"] = env.teleport_reasons()
         counters = {"teleports": env.teleports, "jam_teleports": info["teleport_reasons"].get("jam", 0),

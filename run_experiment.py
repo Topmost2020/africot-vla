@@ -46,6 +46,16 @@ def build_controller(name, args):
     from africot.baselines import BASELINES
     if name in BASELINES:
         return BASELINES[name](), {"vlam_backend": None}
+    if name in ("africot_noslow", "africot_nowm"):
+        from africot import planner_cem
+        from africot import subgoal as sg
+        use_wm = name == "africot_noslow"
+        ctrl = planner_cem.CEMPlanner(args.seed, use_world_model=use_wm, name=name)
+        extra = {"vlam_backend": None, "planner": dict(planner_cem.CEM), "subgoal": "fixed default",
+                 "default_subgoal": sg.DEFAULT_SUBGOAL}
+        if use_wm:
+            extra["world_model"] = os.path.relpath(planner_cem.DEFAULT_WM, ROOT)
+        return ctrl, extra
     raise SystemExit(f"unknown controller {name!r}")
 
 
@@ -59,6 +69,8 @@ def run(controller, scenario, seed, force=False, results_dir=RESULTS_DIR, args=N
         if not quiet:
             print(f"skip (exists): {path}")
         return path
+    args = args or argparse.Namespace()
+    args.seed = seed
     ctrl, extra = build_controller(controller, args)
     perception = Perception(seed)
     metrics, info = run_episode(ctrl, scenario, seed, observe=perception)
