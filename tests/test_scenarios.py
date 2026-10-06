@@ -26,8 +26,9 @@ def test_demand_rates_and_turns(tmp_path):
     root = ET.parse(p).getroot()
     vehs = root.findall("vehicle")
     from_s = [v for v in vehs if v.find("route").get("edges").startswith("S2C")]
-    # 550 veh/h over 3900 s, Poisson: within 15%
-    assert abs(len(from_s) - 550 * 3900 / 3600) < 0.15 * 550 * 3900 / 3600
+    # configured side-road flow over 3900 s, Poisson: within 15%
+    rate = sc.get("market")["flows"]["S"]
+    assert abs(len(from_s) - rate * 3900 / 3600) < 0.15 * rate * 3900 / 3600
     from_w = [v for v in vehs if v.find("route").get("edges").startswith("W2C")]
     right = sum(v.find("route").get("edges").endswith("C2S") for v in from_w)
     assert 0.15 < right / len(from_w) < 0.25
