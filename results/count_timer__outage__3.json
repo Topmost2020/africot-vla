@@ -5,27 +5,30 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 224.83384239462433,
-  "awt": 114.89676237018936,
+  "att": 215.25470514429108,
+  "awt": 110.81932245922208,
   "awt_by_class": {
-   "car": 116.85154639175258,
-   "danfo": 117.74635568513119,
-   "keke": 104.76127320954907,
-   "okada": 119.28472222222223
+   "car": 113.08898305084746,
+   "danfo": 111.65294117647059,
+   "keke": 107.64285714285714,
+   "okada": 110.3444976076555
   },
-  "throughput": 1722,
-  "completed_trips": 1637,
-  "unfinished": 112,
-  "ped_wait": 16.17155266015201,
+  "throughput": 1669,
+  "completed_trips": 1594,
+  "unfinished": 136,
+  "ped_wait": 16.71444082519001,
   "ped_count": 921,
-  "aql": 55.27333333333333,
+  "aql": 58.68888888888889,
   "aql_steps": 3600,
-  "teleports": 0,
-  "jam_teleports": 0
+  "teleports": 2,
+  "jam_teleports": 0,
+  "shield_interventions": 39,
+  "decisions": 501,
+  "safety_violations": 0
  },
  "info": {
-  "teleports": 0,
-  "decisions": 547,
+  "teleports": 2,
+  "decisions": 501,
   "incident": null,
   "demand": {
    "vehicles": {
@@ -38,8 +41,25 @@
    "scenario": "outage",
    "seed": 3
   },
-  "wall_s": 15.7,
-  "teleport_reasons": {}
+  "wall_s": 23.7,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 85,
+    "east": 65,
+    "south": 85,
+    "xS": 85,
+    "xE": 80,
+    "xW": 65
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 39
+  },
+  "teleport_reasons": {
+   "yield": 2
+  }
  },
  "config": {
   "scenario": {
@@ -79,8 +99,19 @@
    "rel_sd": 0.1,
    "min_sd": 0.5,
    "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
   }
  },
- "git_hash": "434f55291f3607b082c2650f8803fc719a355c60",
- "created_utc": "2026-10-06T18:26:14Z"
+ "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
+ "created_utc": "2026-10-06T18:35:30Z"
 }

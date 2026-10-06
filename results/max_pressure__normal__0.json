@@ -5,27 +5,30 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 75.81141141141141,
-  "awt": 15.621621621621621,
+  "att": 76.39324487334137,
+  "awt": 16.30639324487334,
   "awt_by_class": {
-   "car": 15.797554347826088,
-   "danfo": 17.03021148036254,
-   "keke": 14.283464566929133,
-   "okada": 14.877906976744185
+   "car": 16.69357045143639,
+   "danfo": 17.55151515151515,
+   "keke": 16.09486166007905,
+   "okada": 14.444767441860465
   },
-  "throughput": 1701,
-  "completed_trips": 1665,
-  "unfinished": 23,
-  "ped_wait": 12.608695652173912,
+  "throughput": 1690,
+  "completed_trips": 1658,
+  "unfinished": 30,
+  "ped_wait": 11.645484949832776,
   "ped_count": 299,
-  "aql": 7.059722222222222,
+  "aql": 7.389722222222222,
   "aql_steps": 3600,
   "teleports": 0,
-  "jam_teleports": 0
+  "jam_teleports": 0,
+  "shield_interventions": 78,
+  "decisions": 195,
+  "safety_violations": 0
  },
  "info": {
   "teleports": 0,
-  "decisions": 198,
+  "decisions": 195,
   "incident": null,
   "demand": {
    "vehicles": {
@@ -38,7 +41,22 @@
    "scenario": "normal",
    "seed": 0
   },
-  "wall_s": 5.1,
+  "wall_s": 8.0,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 65,
+    "east": 40,
+    "south": 60,
+    "xS": 60,
+    "xE": 55,
+    "xW": 60
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 78
+  },
   "teleport_reasons": {}
  },
  "config": {
@@ -72,8 +90,19 @@
    "rel_sd": 0.1,
    "min_sd": 0.5,
    "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
   }
  },
- "git_hash": "434f55291f3607b082c2650f8803fc719a355c60",
- "created_utc": "2026-10-06T18:26:14Z"
+ "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
+ "created_utc": "2026-10-06T18:35:29Z"
 }

@@ -5,31 +5,34 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 74.91766826923077,
-  "awt": 14.736177884615385,
+  "att": 75.6622754491018,
+  "awt": 15.41437125748503,
   "awt_by_class": {
-   "car": 14.451058201058201,
-   "danfo": 14.79940119760479,
-   "keke": 15.252136752136753,
-   "okada": 14.952941176470588
+   "car": 15.91304347826087,
+   "danfo": 14.605970149253732,
+   "keke": 15.774468085106383,
+   "okada": 14.850439882697946
   },
-  "throughput": 1703,
-  "completed_trips": 1664,
-  "unfinished": 36,
-  "ped_wait": 14.183279742765274,
+  "throughput": 1712,
+  "completed_trips": 1670,
+  "unfinished": 30,
+  "ped_wait": 14.909967845659164,
   "ped_count": 311,
-  "aql": 6.902777777777778,
+  "aql": 7.215,
   "aql_steps": 3600,
   "teleports": 0,
-  "jam_teleports": 0
+  "jam_teleports": 0,
+  "shield_interventions": 75,
+  "decisions": 194,
+  "safety_violations": 0
  },
  "info": {
   "teleports": 0,
-  "decisions": 197,
+  "decisions": 194,
   "incident": {
    "inserted": 1200.0,
-   "stopped": 1205.0,
-   "stop_pos": 41.8
+   "stopped": 1204.0,
+   "stop_pos": 47.1
   },
   "demand": {
    "vehicles": {
@@ -42,7 +45,22 @@
    "scenario": "incident",
    "seed": 2
   },
-  "wall_s": 5.1,
+  "wall_s": 8.0,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 60,
+    "east": 35,
+    "south": 85,
+    "xS": 60,
+    "xE": 75,
+    "xW": 80
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 75
+  },
   "teleport_reasons": {}
  },
  "config": {
@@ -82,8 +100,19 @@
    "rel_sd": 0.1,
    "min_sd": 0.5,
    "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
   }
  },
- "git_hash": "434f55291f3607b082c2650f8803fc719a355c60",
- "created_utc": "2026-10-06T18:26:39Z"
+ "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
+ "created_utc": "2026-10-06T18:36:10Z"
 }

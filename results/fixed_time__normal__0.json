@@ -21,7 +21,10 @@
   "aql": 13.838333333333333,
   "aql_steps": 3600,
   "teleports": 0,
-  "jam_teleports": 0
+  "jam_teleports": 0,
+  "shield_interventions": 0,
+  "decisions": 135,
+  "safety_violations": 0
  },
  "info": {
   "teleports": 0,
@@ -38,7 +41,20 @@
    "scenario": "normal",
    "seed": 0
   },
-  "wall_s": 5.5,
+  "wall_s": 8.7,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 50,
+    "east": 35,
+    "south": 65,
+    "xS": 50,
+    "xE": 60,
+    "xW": 60
+   }
+  },
+  "shield_corrections_by_rule": {},
   "teleport_reasons": {}
  },
  "config": {
@@ -76,8 +92,19 @@
    "rel_sd": 0.1,
    "min_sd": 0.5,
    "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
   }
  },
- "git_hash": "434f55291f3607b082c2650f8803fc719a355c60",
- "created_utc": "2026-10-06T18:24:48Z"
+ "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
+ "created_utc": "2026-10-06T18:33:16Z"
 }
