@@ -3,7 +3,7 @@ import json
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOG_DIR = os.path.join(ROOT, "logs")
+LOG_DIR = os.environ.get("AFRICOT_LOG_DIR", os.path.join(ROOT, "logs"))
 
 
 class ExplainLog:

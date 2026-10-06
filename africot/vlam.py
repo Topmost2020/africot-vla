@@ -94,9 +94,11 @@ class HFVLAM:
     """Hugging Face transformers backend (Qwen2.5-VL by default). Greedy decoding."""
     backend = "hf"
 
-    def __init__(self, model_id=DEFAULT_HF_MODEL, max_new_tokens=400, dtype="bfloat16", device="cpu"):
+    def __init__(self, model_id=DEFAULT_HF_MODEL, max_new_tokens=400, dtype="bfloat16", device=None):
         import torch
         from transformers import AutoModelForImageTextToText, AutoProcessor
+        if device is None:
+            device = "cuda" if torch.cuda.is_available() else "cpu"
         self.model_id = model_id
         self.max_new_tokens = max_new_tokens
         self.processor = AutoProcessor.from_pretrained(model_id)
