@@ -1,0 +1,23 @@
+{
+ "scenario": "market",
+ "seed": 100,
+ "seed_role": "tuning",
+ "time": 226.0,
+ "clock": "07:03",
+ "queues": {
+  "east": 0.0,
+  "west": 2.5,
+  "south": 3.4
+ },
+ "ped_waiting": {
+  "xE": 10.9,
+  "xW": 2.3,
+  "xS": 0.4
+ },
+ "danfos": {
+  "east": 0.3,
+  "west": 1.2,
+  "south": 1.1
+ },
+ "note": "Perception (noisy) values at the snapshot time; signal plan fixed_time-like cycle."
+}

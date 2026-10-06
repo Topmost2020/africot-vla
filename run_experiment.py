@@ -16,10 +16,12 @@ import time
 from africot import scenarios as sc
 from africot import shield
 from africot.perception import Perception
+from africot.log import ExplainLog
 from africot.runner import run_episode
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIR = os.path.join(ROOT, "results")
+MOCK_RESULTS_DIR = os.path.join(ROOT, "results", "mock_wiring")
 
 
 def git_hash():
@@ -56,6 +58,17 @@ def build_controller(name, args):
         if use_wm:
             extra["world_model"] = os.path.relpath(planner_cem.DEFAULT_WM, ROOT)
         return ctrl, extra
+    if name == "africot_full":
+        from africot import planner_cem
+        from africot.coordinator import Coordinator
+        from africot.vlam import make_vlam
+        backend = getattr(args, "vlam_backend", None) or "mock"
+        vlam = make_vlam(backend, getattr(args, "vlam_model", None))
+        coord = Coordinator(vlam, sc.get(args.scenario))
+        ctrl = planner_cem.CEMPlanner(args.seed, use_world_model=True, subgoal_source=coord, name=name)
+        return ctrl, {"vlam_backend": backend, "vlam_model": vlam.model_id, "planner": dict(planner_cem.CEM),
+                      "world_model": os.path.relpath(planner_cem.DEFAULT_WM, ROOT),
+                      "reportable": backend != "mock"}
     raise SystemExit(f"unknown controller {name!r}")
 
 
@@ -64,22 +77,42 @@ def result_path(controller, scenario, seed, results_dir=RESULTS_DIR):
 
 
 def run(controller, scenario, seed, force=False, results_dir=RESULTS_DIR, args=None, quiet=False):
+    args = args or argparse.Namespace()
+    backend = getattr(args, "vlam_backend", None)
+    if controller == "africot_full" and (backend or "mock") == "mock" and results_dir == RESULTS_DIR:
+        # mock-VLAM runs are wiring checks only and are never reported as VLAM results
+        results_dir = MOCK_RESULTS_DIR
     path = result_path(controller, scenario, seed, results_dir)
     if os.path.exists(path) and not force:
         if not quiet:
             print(f"skip (exists): {path}")
         return path
-    args = args or argparse.Namespace()
     args.seed = seed
+    args.scenario = scenario
     ctrl, extra = build_controller(controller, args)
     perception = Perception(seed)
-    metrics, info = run_episode(ctrl, scenario, seed, observe=perception)
+    run_id = f"{controller}__{scenario}__{seed}" + (f"__{extra['vlam_backend']}" if extra.get("vlam_backend") else "")
+    log = ExplainLog(run_id, controller, scenario, seed, vlam_backend=extra.get("vlam_backend"), ctrl=ctrl)
+    try:
+        metrics, info = run_episode(ctrl, scenario, seed, observe=perception, decision_hook=log)
+    finally:
+        log.close()
+    info["log_file"] = os.path.relpath(log.path, ROOT)
+    coord = getattr(ctrl, "subgoal_source", None)
+    if coord is not None and hasattr(coord, "calls"):
+        metrics["slow_loop_calls"] = len(coord.calls)
+        metrics["vlam_parse_failures"] = coord.parse_failures
+        metrics["novelty_triggers"] = sum(1 for ev in coord.events if ev["event"] == "novelty_trigger")
+        info["coordinator_events"] = coord.events
+        lat = [c["latency_s"] for c in coord.calls]
+        info["vlam_latency_mean_s"] = float(sum(lat) / len(lat)) if lat else None
     out = {
         "controller": controller,
         "scenario": scenario,
         "seed": seed,
         "seed_role": seed_role(seed),
         "vlam_backend": extra.get("vlam_backend"),
+        "reportable": extra.get("reportable", True),
         "metrics": metrics,
         "info": info,
         "config": {

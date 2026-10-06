@@ -30,6 +30,8 @@ def run_episode(controller, scenario, seed, end_s=sc.END_S, observe=None, step_h
     t0 = _time.time()
     state = env.reset(scenario, seed, end_s=end_s, overrides=overrides)
     controller.reset()
+    if hasattr(controller, "bind_env"):
+        controller.bind_env(env)
     shield.reset()
     decisions = 0
     try:

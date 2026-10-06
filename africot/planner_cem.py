@@ -98,6 +98,8 @@ class CEMPlanner:
         self.last_wm_error = None
 
     def reset(self):
+        if hasattr(self.subgoal_source, "reset"):
+            self.subgoal_source.reset()
         self.rng = np.random.default_rng([self.seed, 999])
         self.waits = WaitTracker()
         self._prev_obs = None
@@ -112,7 +114,12 @@ class CEMPlanner:
     def current_subgoal(self, obs):
         if self.subgoal_source is None:
             return copy.deepcopy(sg.DEFAULT_SUBGOAL)
-        return self.subgoal_source(obs)
+        return self.subgoal_source(obs, self.last_wm_error)
+
+    def bind_env(self, env):
+        """Give the slow loop access to the simulator for rendering snapshots."""
+        if hasattr(self.subgoal_source, "bind_env"):
+            self.subgoal_source.bind_env(env)
 
     def _danfo_share(self, obs):
         out = []
@@ -123,12 +130,13 @@ class CEMPlanner:
 
     def decide(self, obs):
         waits = self.waits.update(obs)
-        goal = self.current_subgoal(obs)
         # world-model 1-step error of the previous decision's prediction (novelty signal)
+        self.last_wm_error = None
         if self._prev_pred is not None:
             actual = np.array([obs["approaches"][a]["queue"] for a in ("west", "east", "south")])
             self.last_wm_error = float(np.abs(self._prev_pred - actual).mean())
             self.wm_errors.append(self.last_wm_error)
+        goal = self.current_subgoal(obs)
         if self.use_wm:
             phase, green, plan = self._cem(obs, waits, goal)
         else:
