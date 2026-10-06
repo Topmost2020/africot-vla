@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main road (east-west): 2 lanes each way, 50 km/h. Side road (south): 1 lane each way, 40 km/h.
+     sidewalkWidth adds a sidewalk lane (index 0) on every edge. -->
+<edges>
+    <edge id="W2C" from="W" to="C" numLanes="2" speed="13.89" sidewalkWidth="2.0"/>
+    <edge id="C2W" from="C" to="W" numLanes="2" speed="13.89" sidewalkWidth="2.0"/>
+    <edge id="E2C" from="E" to="C" numLanes="2" speed="13.89" sidewalkWidth="2.0"/>
+    <edge id="C2E" from="C" to="E" numLanes="2" speed="13.89" sidewalkWidth="2.0"/>
+    <edge id="S2C" from="S" to="C" numLanes="1" speed="11.11" sidewalkWidth="2.0"/>
+    <edge id="C2S" from="C" to="S" numLanes="1" speed="11.11" sidewalkWidth="2.0"/>
+</edges>

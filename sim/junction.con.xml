@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lane 0 is the sidewalk, so road lanes start at 1. On the main road lane 1 is the
+     right (kerb) lane and lane 2 the left (median) lane. -->
+<connections>
+    <connection from="W2C" to="C2E" fromLane="1" toLane="1"/>
+    <connection from="W2C" to="C2E" fromLane="2" toLane="2"/>
+    <connection from="W2C" to="C2S" fromLane="1" toLane="1"/>
+    <connection from="E2C" to="C2W" fromLane="1" toLane="1"/>
+    <connection from="E2C" to="C2W" fromLane="2" toLane="2"/>
+    <connection from="E2C" to="C2S" fromLane="2" toLane="1"/>
+    <connection from="S2C" to="C2E" fromLane="1" toLane="1"/>
+    <connection from="S2C" to="C2W" fromLane="1" toLane="2"/>
+</connections>
