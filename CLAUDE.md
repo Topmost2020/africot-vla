@@ -1,6 +1,22 @@
 # Working in this repo
 
-Read `SPEC.md` first. It defines what to build and the integrity rules. `STATUS.md` is the shared hand-off board between three agents that run unattended. Always `git pull --rebase` before you start and before you push.
+Read `SPEC.md` first. It defines what to build and the integrity rules. `STATUS.md` is the shared hand-off board between three agents that run unattended.
+
+## Shared branch
+
+All agents work on the branch **`claude/africot-build`**, never on `main`.
+- At the start of a run: `git fetch origin`, then `git checkout claude/africot-build`. If the branch does not exist yet, create it from `origin/main` and push it with `-u`.
+- Always `git pull --rebase origin claude/africot-build` before you start and before every push.
+- If a push is rejected, pull with rebase and push again. Never force-push.
+
+## Run locks
+
+Each role runs hourly, and a run can last longer than an hour. Use `LOCKS.md` to avoid two runs of the same role working at once.
+- At the start: pull, then read `LOCKS.md`. If your role has a lock that is less than 100 minutes old, stop immediately without changing anything.
+- Otherwise, write your role's line with the current UTC time, then commit and push before doing any work.
+- Refresh the timestamp when you push after finishing each stage.
+- Clear your line when you finish.
+- If there is nothing to do for your role, exit without taking the lock.
 
 ## Stage states in STATUS.md
 
