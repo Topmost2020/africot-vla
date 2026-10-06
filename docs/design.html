@@ -1,0 +1,479 @@
+<title>AfriCoT-VLA Prototype Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column (max 980px) with a wide diagram block; road-signage condensed headings, engineering-doc body. */
+:root {
+  --bg: #f5f6f4;
+  --surface: #ffffff;
+  --fg: #1d2326;
+  --muted: #5b666b;
+  --line: #d5dad8;
+  --slow: #b86e00;        /* slow loop: signal amber */
+  --slow-tint: #fbefdc;
+  --fast: #1f6a7a;        /* fast loop: road-sign teal */
+  --fast-tint: #e1eff1;
+  --shield: #b23a2e;      /* safety: stop red */
+  --shield-tint: #f8e3e0;
+  --sim: #4d5559;
+  --sim-tint: #eceeed;
+  --built: #2e7d4f;
+  --built-tint: #e2f1e7;
+  --desc: #6b5fa8;
+  --desc-tint: #ecebf7;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151a1c; --surface: #1d2427; --fg: #e4e8e6; --muted: #9aa5a9; --line: #333d41;
+    --slow: #f0a640; --slow-tint: #3a2c16; --fast: #6cc2d2; --fast-tint: #16303a;
+    --shield: #f07a6c; --shield-tint: #3d1f1c; --sim: #b3bcbf; --sim-tint: #262e31;
+    --built: #6fcf96; --built-tint: #183427; --desc: #b2a8ea; --desc-tint: #26233d;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151a1c; --surface: #1d2427; --fg: #e4e8e6; --muted: #9aa5a9; --line: #333d41;
+  --slow: #f0a640; --slow-tint: #3a2c16; --fast: #6cc2d2; --fast-tint: #16303a;
+  --shield: #f07a6c; --shield-tint: #3d1f1c; --sim: #b3bcbf; --sim-tint: #262e31;
+  --built: #6fcf96; --built-tint: #183427; --desc: #b2a8ea; --desc-tint: #26233d;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.6;
+  padding-inline: 20px; padding-block: 40px 72px;
+}
+.wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px; }
+.prose { max-width: 68ch; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: 0.01em; }
+h1 { font-size: clamp(34px, 6vw, 48px); font-weight: 700; line-height: 1.05; }
+h2 { font-size: 28px; font-weight: 600; line-height: 1.15; }
+h3 { font-size: 20px; font-weight: 600; }
+p { margin: 0; }
+section { display: flex; flex-direction: column; gap: 16px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+header { display: flex; flex-direction: column; gap: 12px; padding-bottom: 24px; border-bottom: 3px solid var(--fg); }
+header .lede { font-size: 17px; color: var(--fg); max-width: 68ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); }
+.meta b { color: var(--fg); font-weight: 500; }
+
+.diagram { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; overflow-x: auto; }
+.diagram svg { display: block; width: 100%; min-width: 820px; height: auto; }
+svg text { font-family: var(--font-body); fill: var(--fg); }
+svg .t { font-size: 13px; font-weight: 600; }
+svg .s { font-size: 11.5px; fill: var(--muted); }
+svg .lbl { font-size: 11.5px; fill: var(--muted); font-family: var(--font-mono); }
+svg .band-lbl { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em; font-weight: 500; }
+svg .band-slow { fill: none; stroke: var(--slow); stroke-dasharray: 5 4; stroke-width: 1.2; }
+svg .band-fast { fill: none; stroke: var(--fast); stroke-dasharray: 5 4; stroke-width: 1.2; }
+svg .b-slow { fill: var(--slow-tint); stroke: var(--slow); stroke-width: 1.4; }
+svg .b-fast { fill: var(--fast-tint); stroke: var(--fast); stroke-width: 1.4; }
+svg .b-shield { fill: var(--shield-tint); stroke: var(--shield); stroke-width: 1.4; }
+svg .b-sim { fill: var(--sim-tint); stroke: var(--sim); stroke-width: 1.4; }
+svg .b-log { fill: var(--desc-tint); stroke: var(--desc); stroke-width: 1.4; }
+svg .e { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+svg .e-sub { fill: none; stroke: var(--slow); stroke-width: 2.2; }
+svg .e-nov { fill: none; stroke: var(--fast); stroke-width: 1.5; stroke-dasharray: 5 4; }
+svg .head { fill: var(--muted); }
+svg .head-sub { fill: var(--slow); }
+svg .head-nov { fill: var(--fast); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted); margin-top: 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 2px; border: 1.5px solid; display: inline-block; }
+
+.cycle { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.cycle > div { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.cycle h3 { display: flex; align-items: baseline; gap: 10px; }
+.cycle .tag { font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; color: var(--muted); }
+.cycle ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+.slow-h { color: var(--slow); } .fast-h { color: var(--fast); }
+
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: none; }
+th { font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: var(--bg); }
+td.name { font-weight: 600; white-space: nowrap; }
+td code, p code, li code { font-family: var(--font-mono); font-size: 12.5px; background: var(--sim-tint); padding: 1px 5px; border-radius: 3px; }
+.num { font-variant-numeric: tabular-nums; }
+.pill { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.built { background: var(--built-tint); color: var(--built); }
+.pill.desc { background: var(--desc-tint); color: var(--desc); }
+.pill.slow { background: var(--slow-tint); color: var(--slow); }
+.pill.fast { background: var(--fast-tint); color: var(--fast); }
+.pill.shield { background: var(--shield-tint); color: var(--shield); }
+.pill.sim { background: var(--sim-tint); color: var(--sim); }
+
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.two > * { min-width: 0; }
+pre { margin: 0; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.55; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; overflow-x: auto; color: var(--fg); }
+pre .c { color: var(--muted); }
+
+.steps { display: flex; flex-direction: column; gap: 0; border-left: 3px solid var(--line); margin-left: 6px; }
+.step { position: relative; padding: 0 0 22px 24px; display: flex; flex-direction: column; gap: 6px; }
+.step::before { content: ""; position: absolute; left: -8.5px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--fast); }
+.step.gate::before { border-color: var(--shield); background: var(--shield); }
+.step-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.step-head h3 { font-size: 19px; }
+.date { font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.done { font-size: 13.5px; color: var(--muted); }
+.done b { color: var(--built); font-weight: 600; }
+.step.gate .done b { color: var(--shield); }
+
+ul.clean { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.note { border-left: 3px solid var(--slow); background: var(--slow-tint); padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 14px; }
+footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+@media (max-width: 520px) { body { padding-inline: 16px; } td.name { white-space: normal; } }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Build plan · single-junction prototype</span>
+  <h1>AfriCoT-VLA Prototype Design</h1>
+  <p class="lede">What gets built this week, how the parts connect, and how each one is checked before the experiments run. The prototype couples a VLAM with Chain-of-Thought reasoning to a latent world model through a subgoal, and runs on one Lagos-style T-junction in SUMO.</p>
+  <div class="meta">
+    <span>Author <b>Temitope W. Ariyo</b></span>
+    <span>Build window <b>Tue 6 to Thu 8 Oct 2026</b></span>
+    <span>Submission <b>Sat 10 Oct 2026</b></span>
+    <span>Hardware <b>CPU laptop + Google Colab GPU</b></span>
+  </div>
+</header>
+
+<section>
+  <span class="eyebrow">System</span>
+  <h2>How the parts connect</h2>
+  <div class="diagram" role="img" aria-label="System diagram: SUMO feeds the perception stand-in and the snapshot renderer. The slow loop runs coordinator, VLAM with CoT and subgoal validator, and passes a subgoal to the CEM planner. The fast loop runs perception, latent world model and CEM planner, then the safety shield and signal control back into SUMO. World-model prediction error triggers the coordinator. The explainability log records the subgoal and the shielded action.">
+    <svg viewBox="0 0 1040 590" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head"/></marker>
+        <marker id="ahs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head-sub"/></marker>
+        <marker id="ahn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head-nov"/></marker>
+      </defs>
+
+      <!-- bands -->
+      <rect class="band-slow" x="50" y="36" width="795" height="134" rx="8"/>
+      <text class="band-lbl" x="64" y="60" style="fill:var(--slow)">SLOW LOOP · every 5 sim-min or on trigger</text>
+      <rect class="band-fast" x="50" y="276" width="795" height="140" rx="8"/>
+      <text class="band-lbl" x="64" y="300" style="fill:var(--fast)">FAST LOOP · every signal decision (10 to 60 s)</text>
+
+      <!-- slow loop boxes -->
+      <rect class="b-slow" x="70" y="78" width="160" height="76" rx="5"/>
+      <text class="t" x="82" y="102">Snapshot renderer</text>
+      <text class="s" x="82" y="121">top-down image of</text>
+      <text class="s" x="82" y="138">the junction from SUMO</text>
+
+      <rect class="b-slow" x="260" y="78" width="160" height="76" rx="5"/>
+      <text class="t" x="272" y="102">Coordinator</text>
+      <text class="s" x="272" y="121">connectivity + novelty</text>
+      <text class="s" x="272" y="138">offline: hold last</text>
+
+      <rect class="b-slow" x="450" y="78" width="180" height="76" rx="5"/>
+      <text class="t" x="462" y="102">VLAM + CoT</text>
+      <text class="s" x="462" y="121">reasons step by step over</text>
+      <text class="s" x="462" y="138">image + context</text>
+
+      <rect class="b-slow" x="660" y="78" width="165" height="76" rx="5"/>
+      <text class="t" x="672" y="102">Subgoal validator</text>
+      <text class="s" x="672" y="121">parse, clamp ranges,</text>
+      <text class="s" x="672" y="138">fall back if invalid</text>
+
+      <!-- fast loop boxes -->
+      <rect class="b-fast" x="70" y="318" width="140" height="80" rx="5"/>
+      <text class="t" x="82" y="343">Perception</text>
+      <text class="s" x="82" y="362">queues, counts,</text>
+      <text class="s" x="82" y="379">occupancy + noise</text>
+
+      <rect class="b-fast" x="240" y="318" width="150" height="80" rx="5"/>
+      <text class="t" x="252" y="343">Latent world model</text>
+      <text class="s" x="252" y="362">predicts queues for</text>
+      <text class="s" x="252" y="379">each candidate timing</text>
+
+      <rect class="b-fast" x="420" y="318" width="150" height="80" rx="5"/>
+      <text class="t" x="432" y="343">CEM planner</text>
+      <text class="s" x="432" y="362">scores imagined</text>
+      <text class="s" x="432" y="379">futures vs subgoal</text>
+
+      <rect class="b-shield" x="600" y="318" width="112" height="80" rx="5"/>
+      <text class="t" x="611" y="343">Safety shield</text>
+      <text class="s" x="611" y="362">min green, amber,</text>
+      <text class="s" x="611" y="379">all-red, ped time</text>
+
+      <rect class="b-fast" x="732" y="318" width="100" height="80" rx="5"/>
+      <text class="t" x="744" y="343">Signals</text>
+      <text class="s" x="744" y="362">phase + time</text>
+      <text class="s" x="744" y="379">via TraCI</text>
+
+      <!-- SUMO -->
+      <rect class="b-sim" x="70" y="496" width="762" height="66" rx="5"/>
+      <text class="t" x="88" y="524">SUMO T-junction</text>
+      <text class="s" x="88" y="544">cars, danfos, kekes, okadas (lane-splitting), pedestrians · normal peak, market day, incident, outage</text>
+
+      <!-- log -->
+      <rect class="b-log" x="880" y="196" width="145" height="170" rx="5"/>
+      <text class="t" x="892" y="221">Explainability log</text>
+      <text class="s" x="892" y="246">timestamp</text>
+      <text class="s" x="892" y="265">CoT trace</text>
+      <text class="s" x="892" y="284">subgoal</text>
+      <text class="s" x="892" y="303">planned timing</text>
+      <text class="s" x="892" y="322">shield overrides</text>
+      <text class="s" x="892" y="341">trigger reason</text>
+
+      <!-- slow loop edges -->
+      <path class="e" d="M230 116 H258" marker-end="url(#ah)"/>
+      <path class="e" d="M420 116 H448" marker-end="url(#ah)"/>
+      <path class="e" d="M630 116 H658" marker-end="url(#ah)"/>
+
+      <!-- fast loop edges -->
+      <path class="e" d="M210 358 H238" marker-end="url(#ah)"/>
+      <path class="e" d="M390 348 H418" marker-end="url(#ah)"/>
+      <path class="e" d="M420 370 H392" marker-end="url(#ah)"/>
+      <path class="e" d="M570 358 H598" marker-end="url(#ah)"/>
+      <path class="e" d="M712 358 H730" marker-end="url(#ah)"/>
+
+      <!-- sim edges -->
+      <path class="e" d="M140 496 V400" marker-end="url(#ah)"/>
+      <text class="lbl" x="150" y="455">ground truth + noise</text>
+      <path class="e" d="M782 398 V494" marker-end="url(#ah)"/>
+      <text class="lbl" x="772" y="455" text-anchor="end">shielded phase + duration</text>
+      <path class="e" d="M70 529 H30 V116 H68" marker-end="url(#ah)"/>
+      <text class="lbl" x="22" y="300" transform="rotate(-90 22 300)" text-anchor="middle">vehicle positions</text>
+
+      <!-- subgoal edge -->
+      <path class="e-sub" d="M742 154 V236 H495 V316" marker-end="url(#ahs)"/>
+      <text class="lbl" x="520" y="228" style="fill:var(--slow)">subgoal: weights + limits</text>
+
+      <!-- novelty edge -->
+      <path class="e-nov" d="M330 318 V156" marker-end="url(#ahn)"/>
+      <text class="lbl" x="338" y="212" style="fill:var(--fast)">prediction error rises:</text>
+      <text class="lbl" x="338" y="228" style="fill:var(--fast)">re-reason now</text>
+
+      <!-- log edges -->
+      <path class="e" d="M825 100 H952 V194" marker-end="url(#ah)"/>
+      <path class="e" d="M832 340 H878" marker-end="url(#ah)"/>
+    </svg>
+  </div>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--slow-tint);border-color:var(--slow)"></i>Slow loop (VLAM + CoT)</span>
+    <span><i class="sw" style="background:var(--fast-tint);border-color:var(--fast)"></i>Fast loop (world model + planner)</span>
+    <span><i class="sw" style="background:var(--shield-tint);border-color:var(--shield)"></i>Safety (cannot be bypassed)</span>
+    <span><i class="sw" style="background:var(--sim-tint);border-color:var(--sim)"></i>Simulation</span>
+    <span><i class="sw" style="background:var(--desc-tint);border-color:var(--desc)"></i>Audit record</span>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">One decision cycle</span>
+  <h2>What happens at each tick</h2>
+  <div class="cycle">
+    <div>
+      <h3><span class="slow-h">Slow loop</span><span class="tag">every 300 sim-seconds, or earlier when triggered</span></h3>
+      <ol>
+        <li>The renderer draws a top-down snapshot of the junction from SUMO vehicle positions, coloured by vehicle class.</li>
+        <li>The coordinator checks connectivity. If the link is down, it keeps the last subgoal and skips the VLAM.</li>
+        <li>The VLAM reads the snapshot plus context (clock time, market day, known incidents) and writes its reasoning step by step.</li>
+        <li>It ends with a JSON subgoal. The validator parses it, clamps every value to a safe range, and keeps the previous subgoal if parsing fails.</li>
+        <li>The subgoal and the full reasoning go to the log.</li>
+      </ol>
+    </div>
+    <div>
+      <h3><span class="fast-h">Fast loop</span><span class="tag">at the end of every green phase</span></h3>
+      <ol>
+        <li>Perception reads per-approach queue length, vehicle counts by class and occupancy from SUMO, then adds noise and missed detections.</li>
+        <li>The CEM planner samples candidate plans (next phase and green time, three decisions ahead).</li>
+        <li>The world model imagines the queues each plan would produce. The planner scores them with the cost the subgoal defines and refines toward the best.</li>
+        <li>The safety shield checks the first step of the best plan and corrects it if it breaks a rule.</li>
+        <li>TraCI applies the phase. The world model's prediction error is tracked; a sustained rise wakes the slow loop.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Components</span>
+  <h2>What each part is and how it is built</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Component</th><th>Loop</th><th>How it is built</th><th>Input → output</th></tr></thead>
+      <tbody>
+        <tr><td class="name">SUMO junction</td><td><span class="pill sim">sim</span></td><td>T-junction drawn with netconvert. Main road east–west (2 lanes each way), side road from the south (1 lane each way), zebra crossings. Custom vehicle types for danfo, keke and okada; sublane model so okadas can lane-split.</td><td>Demand file → traffic</td></tr>
+        <tr><td class="name">Perception</td><td><span class="pill fast">fast</span></td><td>Reads lane data through TraCI. Adds Gaussian noise to counts and drops about 5% of detections, standing in for an edge camera detector.</td><td>SUMO state → per-approach queue, counts, occupancy</td></tr>
+        <tr><td class="name">Latent world model</td><td><span class="pill fast">fast</span></td><td>Small PyTorch model in the style of DreamerV3 and TD-MPC2: an encoder maps the observation to a 32-dimensional latent, a GRU rolls it forward given the action, a decoder predicts queues. Trained on CPU in minutes from logged SUMO runs. Not a foundation model.</td><td>State + candidate action → predicted queues</td></tr>
+        <tr><td class="name">CEM planner</td><td><span class="pill fast">fast</span></td><td>Cross-Entropy Method over three-step plans: 64 samples, 4 iterations, top 8 kept. Phase choice is categorical, green time is Gaussian clipped to 10–60 s.</td><td>World model + subgoal → best timing</td></tr>
+        <tr><td class="name">Safety shield</td><td><span class="pill shield">safety</span></td><td>Plain rules, no learning: minimum green 10 s, maximum green 90 s, amber 3 s, all-red 2 s, pedestrian crossing time respected. Every correction is logged.</td><td>Proposed timing → safe timing</td></tr>
+        <tr><td class="name">Snapshot renderer</td><td><span class="pill slow">slow</span></td><td>matplotlib draws road outlines and vehicles as coloured shapes by class. SUMO has no cameras, so this image stands in for a keyframe.</td><td>Vehicle positions → PNG</td></tr>
+        <tr><td class="name">Coordinator</td><td><span class="pill slow">slow</span></td><td>Rule-based. Decides whether to call the VLAM (connected, scheduled or triggered), hold the last subgoal (offline), or fall back to a cached time-of-day subgoal (long outage).</td><td>Link state + prediction error → run / hold / cached</td></tr>
+        <tr><td class="name">VLAM + CoT</td><td><span class="pill slow">slow</span></td><td>Open-weight Qwen2.5-VL vision-language model: the 7B version on the Colab GPU, the 3B version for CPU tests. Prompted to reason step by step, then output a subgoal. Its action is the subgoal, following the ECoT and InstructVLA approach of reasoning before acting.</td><td>Image + context → reasoning + JSON subgoal</td></tr>
+        <tr><td class="name">Subgoal validator</td><td><span class="pill slow">slow</span></td><td>Checks the JSON against a schema, clamps each field, rejects anything malformed.</td><td>Raw output → safe subgoal</td></tr>
+        <tr><td class="name">Explainability log</td><td><span class="pill built">audit</span></td><td>One JSON line per decision: time, trigger, CoT trace, subgoal, plan, shield correction, applied phase.</td><td>All decisions → JSONL file</td></tr>
+        <tr><td class="name">Baselines</td><td><span class="pill sim">compare</span></td><td>Fixed-time (set cycle), camera-count-plus-timer (extend green while queue is above a threshold), max-pressure (serve the approach with the largest queue pressure).</td><td>State → timing</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Interface</span>
+  <h2>The subgoal: the only link between the two loops</h2>
+  <div class="two">
+    <div class="prose" style="display:flex;flex-direction:column;gap:12px">
+      <p>The VLAM never sets signals directly. It sets what the planner should care about. The planner turns those weights into a cost and picks timings that minimise it under the world model's predictions.</p>
+      <p>Every field has a fixed range. A value outside the range is clamped, and an unreadable response keeps the previous subgoal, so a bad model output can only shift priorities within safe limits. The shield still applies after that.</p>
+      <p>The planner's cost for an imagined future is the weighted sum of approach queues, plus the pedestrian weight times pedestrian waiting, plus transit priority times the number of waiting danfos, plus a large penalty for any approach whose wait exceeds <code>max_wait_s</code>.</p>
+    </div>
+<pre><span class="c">// example subgoal, market day afternoon</span>
+{
+  "queue_weights": {
+    "east": 1.0,      <span class="c">// 0.2 – 3.0</span>
+    "west": 1.0,
+    "south": 2.2      <span class="c">// market side road</span>
+  },
+  "pedestrian_weight": 1.8,   <span class="c">// 0.0 – 3.0</span>
+  "max_wait_s": 90,           <span class="c">// 45 – 180</span>
+  "transit_priority": 1.3,    <span class="c">// 0.0 – 2.0</span>
+  "valid_for_s": 300
+}</pre>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Build order</span>
+  <h2>Steps, dates and how each is checked</h2>
+  <p class="prose">Each step is tested before the next starts, so a failure is caught where it happens. The two red points are hard gates: if a gate is missed, the fallback is used instead of slipping the whole plan.</p>
+  <div class="steps">
+    <div class="step"><div class="step-head"><h3>Set up the environment</h3><span class="date">Tue 6 Oct</span></div>
+      <p>Install SUMO (<code>eclipse-sumo</code>) and matplotlib through pip. Create the project folder and a run script.</p>
+      <p class="done"><b>Done when</b> a sample SUMO network runs from Python through TraCI.</p></div>
+    <div class="step"><div class="step-head"><h3>Build the junction and scenarios</h3><span class="date">Tue 6 Oct</span></div>
+      <p>T-junction network, vehicle types, pedestrian crossings, signal program with amber and all-red. Demand for normal peak, market day, incident (east lane blocked for 15 minutes) and outage.</p>
+      <p class="done"><b>Done when</b> each scenario runs a full simulated hour with no teleports or gridlock under fixed-time.</p></div>
+    <div class="step"><div class="step-head"><h3>Perception and baselines</h3><span class="date">Tue 6 Oct</span></div>
+      <p>Noisy perception module, the three baselines, and the metric collector (travel time, queue length, waiting time, throughput).</p>
+      <p class="done"><b>Done when</b> all three baselines produce metrics on all four scenarios, and max-pressure beats fixed-time on normal peak as expected.</p></div>
+    <div class="step"><div class="step-head"><h3>Safety shield</h3><span class="date">Wed 7 Oct</span></div>
+      <p>Built before any learned part so nothing ever runs unshielded.</p>
+      <p class="done"><b>Done when</b> unit tests feeding deliberately unsafe timings are always corrected.</p></div>
+    <div class="step"><div class="step-head"><h3>Latent world model</h3><span class="date">Wed 7 Oct</span></div>
+      <p>Log transitions from baseline and random-timing runs, train the model on CPU.</p>
+      <p class="done"><b>Done when</b> its queue predictions on held-out runs beat a "queues stay the same" guess.</p></div>
+    <div class="step"><div class="step-head"><h3>CEM planner with a fixed subgoal</h3><span class="date">Wed 7 Oct</span></div>
+      <p>This is the "without slow loop" version, and a complete controller in its own right.</p>
+      <p class="done"><b>Done when</b> it runs all scenarios and is at least competitive with max-pressure on normal peak.</p></div>
+    <div class="step"><div class="step-head"><h3>Slow loop: renderer, VLAM, validator, coordinator, log</h3><span class="date">Wed 7 Oct</span></div>
+      <p>Test the VLAM with the 3B model on CPU: one snapshot in, reasoning and a valid subgoal out. Then wire it into the loop.</p>
+      <p class="done"><b>Done when</b> a short run shows the subgoal changing with context (market day vs normal), and the log holds readable reasoning.</p></div>
+    <div class="step gate"><div class="step-head"><h3>Gate 1: full loop runs end to end</h3><span class="date">Wed 7 Oct, night</span></div>
+      <p>SUMO → perception → world model and planner → shield → signals, with the VLAM updating subgoals and the outage scenario holding the last one.</p>
+      <p class="done"><b>Fallback</b> if the VLAM is not reliable: use the cached time-of-day subgoal schedule, report the VLAM as a demonstrated component on sample cases.</p></div>
+    <div class="step"><div class="step-head"><h3>Novelty trigger</h3><span class="date">Thu 8 Oct, if time allows</span></div>
+      <p>Wake the slow loop early when the world model's rolling prediction error passes twice its normal level.</p>
+      <p class="done"><b>Done when</b> the incident scenario triggers an early re-reason within a few minutes of the blockage.</p></div>
+    <div class="step"><div class="step-head"><h3>Experiments on Colab</h3><span class="date">Thu 8 Oct</span></div>
+      <p>Same code on a GPU with the 7B VLAM. Results save to Google Drive after every run.</p>
+      <p class="done"><b>Done when</b> every controller and ablation has run on every scenario with 5 seeds.</p></div>
+    <div class="step gate"><div class="step-head"><h3>Gate 2: all results and figures in</h3><span class="date">Thu 8 Oct, night</span></div>
+      <p>Tables, matplotlib figures (no figure numbers in the images), and sample reasoning traces from the log.</p>
+      <p class="done"><b>Fallback</b> if runs are slow: 3 seeds instead of 5, then drop the incident scenario.</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Evaluation</span>
+  <h2>What the experiments compare</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Group</th><th>Items</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Scenarios</td><td>Normal peak · Market day (heavy side road, more pedestrians, kekes and okadas) · Incident (east lane blocked 15 min) · Outage (slow loop unreachable for 20 min)</td></tr>
+        <tr><td class="name">Controllers</td><td>Fixed-time · Camera-count-plus-timer · Max-pressure · AfriCoT-VLA</td></tr>
+        <tr><td class="name">Ablations</td><td>Without slow loop (fixed default subgoal) · Without world model (planner scores current queues only) · Under connection loss (outage scenario)</td></tr>
+        <tr><td class="name">Metrics</td><td>Average travel time · Average queue length · Average waiting time · Throughput · Shield interventions · Slow-loop calls</td></tr>
+        <tr><td class="name">Runs</td><td class="num">4 controllers + 2 ablations, × 4 scenarios, × 5 seeds = 120 runs of one simulated hour</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Framework mapping</span>
+  <h2>Dr. Fasina's 8 layers in this prototype</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Layer</th><th>In the prototype</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="name">1 · Sensor and actuator</td><td>Perception stand-in reads SUMO; signals set through TraCI</td><td><span class="pill built">built (simulated)</span></td></tr>
+        <tr><td class="name">2 · Network</td><td>Connectivity on/off switch in the coordinator; keyframes only, no video stream</td><td><span class="pill built">built (simplified)</span></td></tr>
+        <tr><td class="name">3 · Data store</td><td>Transition logs for world-model training, results files</td><td><span class="pill built">built (files)</span></td></tr>
+        <tr><td class="name">4 · Model</td><td>VLAM + CoT, latent world model, CEM planner, safety shield</td><td><span class="pill built">built</span></td></tr>
+        <tr><td class="name">5 · Explainability</td><td>Decision log with reasoning traces</td><td><span class="pill built">built</span></td></tr>
+        <tr><td class="name">6 · Service</td><td>Decision, query, override and health APIs</td><td><span class="pill desc">described</span></td></tr>
+        <tr><td class="name">7 · AI agent</td><td>Corridor coordination across junctions</td><td><span class="pill desc">described</span></td></tr>
+        <tr><td class="name">8 · Autonomous agentic</td><td>Plan proposals, what-if simulation, human sign-off</td><td><span class="pill desc">described</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Code</span>
+  <h2>Project layout</h2>
+<pre>africot_vla/
+  sim/
+    junction.nod.xml  junction.edg.xml   <span class="c">network source</span>
+    vtypes.add.xml                       <span class="c">car, danfo, keke, okada, pedestrian</span>
+    routes_{normal,market,incident,outage}.rou.xml
+    junction.sumocfg
+  africot/
+    env.py            <span class="c">TraCI wrapper: step, read state, apply phase</span>
+    perception.py     <span class="c">noisy queue / count / occupancy</span>
+    world_model.py    <span class="c">encoder + GRU dynamics + decoder, training</span>
+    planner_cem.py    <span class="c">CEM over three-step plans</span>
+    subgoal.py        <span class="c">schema, defaults, validator, cached schedule</span>
+    shield.py         <span class="c">safety rules</span>
+    renderer.py       <span class="c">top-down snapshot</span>
+    vlam.py           <span class="c">prompt, model call, reasoning + subgoal parsing</span>
+    coordinator.py    <span class="c">connectivity, novelty trigger, routing</span>
+    log.py            <span class="c">explainability JSONL</span>
+    baselines.py      <span class="c">fixed-time, count-plus-timer, max-pressure</span>
+    metrics.py
+  run_experiment.py   <span class="c">one controller × scenario × seed</span>
+  plots.py            <span class="c">figures for Chapter 4</span>
+  colab_experiments.ipynb</pre>
+</section>
+
+<section>
+  <span class="eyebrow">Decisions</span>
+  <h2>Assumptions and risks</h2>
+  <div class="two">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <h3>Assumptions stated in the dissertation</h3>
+      <ul class="clean">
+        <li>One junction rather than a corridor, because of the timeline.</li>
+        <li>Simulation-only evaluation; real deployment is the roadmap.</li>
+        <li>The 8-layer framework keeps raw video on site, with the cloud as the full-connectivity tier.</li>
+        <li>SUMO counts plus noise stand in for the camera detector.</li>
+        <li>A rendered top-down image stands in for camera keyframes.</li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <h3>Risks and responses</h3>
+      <ul class="clean">
+        <li><b>VLAM slow on CPU.</b> Use 3B only for tests; run experiments on Colab.</li>
+        <li><b>VLAM returns bad JSON.</b> Validator keeps the last subgoal and logs the failure.</li>
+        <li><b>Colab disconnects.</b> Save after every run; restart skips finished runs.</li>
+        <li><b>World model inaccurate.</b> Report it honestly; the "without world model" ablation shows its effect.</li>
+        <li><b>Gridlock in SUMO.</b> Tune demand on Tuesday before any learning.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">The prototype tests the core claim: a reasoning model that sets priorities, coupled to a world model that plans, works as one closed loop and keeps working when the reasoning side is unreachable. The corridor, tiered communication and field deployment are designed and described, not built.</p>
+</section>
+
+<footer>AfriCoT-VLA · Machine Learning Research Group, Department of Artificial Intelligence and Robotics, University of Lagos · Prepared 6 October 2026</footer>
+
+</div>
