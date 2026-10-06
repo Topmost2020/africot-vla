@@ -5,20 +5,35 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 156.7981093855503,
-  "awt": 74.1046590141796,
+  "att": 132.9141327489042,
+  "awt": 58.984890419536626,
+  "att_completed": 127.80877537655533,
+  "awt_completed": 54.637197118533074,
   "awt_by_class": {
-   "car": 67.43607305936074,
-   "danfo": 79.96451612903226,
-   "keke": 66.59312320916905,
-   "okada": 83.80729166666667
+   "car": 55.99392405063292,
+   "danfo": 53.27599388379205,
+   "keke": 57.60551451187335,
+   "okada": 68.11513189448442
   },
-  "throughput": 1551,
-  "completed_trips": 1481,
-  "unfinished": 83,
-  "ped_wait": 19.944625407166125,
-  "ped_count": 921,
-  "aql": 39.97555555555556,
+  "awt_by_arm": {
+   "east": 12.084569083447333,
+   "south": 335.76773755656114,
+   "west": 17.302914728682172
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5578932968536252,
+   "south": 0.4871945701357466,
+   "west": 0.533922480620155
+  },
+  "throughput": 1564,
+  "vehicles_measured": 1597,
+  "completed_trips": 1527,
+  "unfinished": 70,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 19.552071668533035,
+  "ped_count": 893,
+  "aql": 25.434722222222224,
   "aql_steps": 3600,
   "teleports": 0,
   "jam_teleports": 0,
@@ -32,26 +47,26 @@
   "incident": null,
   "demand": {
    "vehicles": {
-    "car": 624,
-    "danfo": 440,
-    "keke": 493,
-    "okada": 555
+    "car": 514,
+    "danfo": 366,
+    "keke": 405,
+    "okada": 453
    },
-   "pedestrians": 996,
+   "pedestrians": 965,
    "scenario": "outage",
    "seed": 3
   },
-  "wall_s": 15.4,
+  "wall_s": 19.2,
   "safety_audit": {
    "violations": 0,
    "by_rule": {},
    "max_no_green_s": {
-    "west": 50,
+    "west": 55,
     "east": 35,
     "south": 65,
-    "xS": 50,
-    "xE": 65,
-    "xW": 65
+    "xS": 55,
+    "xE": 60,
+    "xW": 60
    }
   },
   "shield_corrections_by_rule": {},
@@ -62,7 +77,7 @@
    "flows": {
     "W": 700,
     "E": 700,
-    "S": 550
+    "S": 200
    },
    "mix": {
     "car": 0.3,
@@ -109,6 +124,6 @@
    }
   }
  },
- "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
- "created_utc": "2026-10-06T18:34:07Z"
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:12:59Z"
 }

@@ -5,57 +5,72 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 220.98275862068965,
-  "awt": 114.85529556650246,
+  "att": 114.18337539432176,
+  "awt": 46.38337539432176,
+  "att_completed": 114.79276952872821,
+  "awt_completed": 46.29567462879277,
   "awt_by_class": {
-   "car": 114.40724946695096,
-   "danfo": 122.30599369085174,
-   "keke": 119.22409638554217,
-   "okada": 105.48226950354609
+   "car": 47.65848484848485,
+   "danfo": 48.109019607843145,
+   "keke": 46.70949874686716,
+   "okada": 43.399473684210534
   },
-  "throughput": 1696,
-  "completed_trips": 1624,
-  "unfinished": 114,
-  "ped_wait": 16.228285077951004,
-  "ped_count": 898,
-  "aql": 55.37277777777778,
+  "awt_by_arm": {
+   "east": 11.995910404624277,
+   "south": 82.5468472906404,
+   "west": 70.23111594202899
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5161416184971098,
+   "south": 0.522216748768473,
+   "west": 0.4977826086956521
+  },
+  "throughput": 1595,
+  "vehicles_measured": 1585,
+  "completed_trips": 1549,
+  "unfinished": 36,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 14.17881548974943,
+  "ped_count": 878,
+  "aql": 19.93027777777778,
   "aql_steps": 3600,
   "teleports": 0,
   "jam_teleports": 0,
-  "shield_interventions": 38,
-  "decisions": 508,
+  "shield_interventions": 64,
+  "decisions": 321,
   "safety_violations": 0
  },
  "info": {
   "teleports": 0,
-  "decisions": 508,
+  "decisions": 321,
   "incident": null,
   "demand": {
    "vehicles": {
-    "car": 599,
-    "danfo": 419,
-    "keke": 540,
-    "okada": 527
+    "car": 506,
+    "danfo": 332,
+    "keke": 432,
+    "okada": 454
    },
-   "pedestrians": 968,
+   "pedestrians": 953,
    "scenario": "market",
    "seed": 0
   },
-  "wall_s": 23.4,
+  "wall_s": 18.8,
   "safety_audit": {
    "violations": 0,
    "by_rule": {},
    "max_no_green_s": {
-    "west": 85,
+    "west": 80,
     "east": 65,
-    "south": 90,
-    "xS": 80,
-    "xE": 90,
-    "xW": 85
+    "south": 75,
+    "xS": 75,
+    "xE": 70,
+    "xW": 65
    }
   },
   "shield_corrections_by_rule": {
-   "ped_crossing": 38
+   "ped_crossing": 64
   },
   "teleport_reasons": {}
  },
@@ -64,7 +79,7 @@
    "flows": {
     "W": 700,
     "E": 700,
-    "S": 550
+    "S": 200
    },
    "mix": {
     "car": 0.3,
@@ -106,6 +121,6 @@
    }
   }
  },
- "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
- "created_utc": "2026-10-06T18:34:40Z"
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:13:39Z"
 }

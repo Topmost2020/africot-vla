@@ -5,20 +5,37 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 156.39754363283774,
-  "awt": 72.8655462184874,
+  "att": 92.29242424242423,
+  "awt": 30.05061842918986,
+  "att_completed": 91.84712571067593,
+  "awt_completed": 29.099178774478837,
   "awt_by_class": {
-   "car": 65.59275053304904,
-   "danfo": 87.33333333333333,
-   "keke": 82.6178861788618,
-   "okada": 61.794621026894866
+   "car": 33.263161033797225,
+   "danfo": 29.94491909385113,
+   "keke": 27.983856382978725,
+   "okada": 28.17149184149184
   },
-  "throughput": 1609,
-  "completed_trips": 1547,
-  "unfinished": 62,
-  "ped_wait": 19.993039443155453,
-  "ped_count": 862,
-  "aql": 37.415277777777774,
+  "awt_by_arm": {
+   "east": 11.86788409703504,
+   "south": 140.34555,
+   "west": 17.35817777777778
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5147843665768195,
+   "south": 0.52555,
+   "west": 0.49743703703703684
+  },
+  "throughput": 1625,
+  "vehicles_measured": 1617,
+  "completed_trips": 1583,
+  "unfinished": 32,
+  "not_inserted": 2,
+  "not_inserted_by_arm": {
+   "west": 2
+  },
+  "ped_wait": 20.717977528089886,
+  "ped_count": 890,
+  "aql": 12.908055555555556,
   "aql_steps": 3600,
   "teleports": 0,
   "jam_teleports": 0,
@@ -32,16 +49,16 @@
   "incident": null,
   "demand": {
    "vehicles": {
-    "car": 646,
-    "danfo": 414,
-    "keke": 505,
-    "okada": 572
+    "car": 545,
+    "danfo": 330,
+    "keke": 406,
+    "okada": 474
    },
-   "pedestrians": 944,
+   "pedestrians": 946,
    "scenario": "market",
    "seed": 4
   },
-  "wall_s": 14.8,
+  "wall_s": 12.6,
   "safety_audit": {
    "violations": 0,
    "by_rule": {},
@@ -49,7 +66,7 @@
     "west": 55,
     "east": 35,
     "south": 65,
-    "xS": 50,
+    "xS": 55,
     "xE": 65,
     "xW": 65
    }
@@ -62,7 +79,7 @@
    "flows": {
     "W": 700,
     "E": 700,
-    "S": 550
+    "S": 200
    },
    "mix": {
     "car": 0.3,
@@ -105,6 +122,6 @@
    }
   }
  },
- "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
- "created_utc": "2026-10-06T18:33:45Z"
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:12:06Z"
 }

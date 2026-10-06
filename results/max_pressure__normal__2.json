@@ -5,17 +5,34 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 74.21407095610343,
-  "awt": 14.858689116055322,
+  "att": 73.84497939964685,
+  "awt": 15.186945261918774,
+  "att_completed": 74.2251655629139,
+  "awt_completed": 14.865743527995184,
   "awt_by_class": {
-   "car": 14.932450331125828,
-   "danfo": 14.67065868263473,
-   "keke": 15.54468085106383,
-   "okada": 14.404129793510325
+   "car": 15.339831387808042,
+   "danfo": 14.957235294117647,
+   "keke": 15.788291666666668,
+   "okada": 14.65793103448276
+  },
+  "awt_by_arm": {
+   "east": 11.471838440111421,
+   "south": 32.518618181818184,
+   "west": 12.214192634560906
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5052646239554317,
+   "south": 0.5586181818181818,
+   "west": 0.5073937677053821
   },
   "throughput": 1705,
-  "completed_trips": 1663,
+  "vehicles_measured": 1699,
+  "completed_trips": 1661,
   "unfinished": 37,
+  "not_inserted": 1,
+  "not_inserted_by_arm": {
+   "west": 1
+  },
   "ped_wait": 13.144694533762058,
   "ped_count": 311,
   "aql": 6.684166666666667,
@@ -41,7 +58,7 @@
    "scenario": "normal",
    "seed": 2
   },
-  "wall_s": 7.9,
+  "wall_s": 16.9,
   "safety_audit": {
    "violations": 0,
    "by_rule": {},
@@ -103,6 +120,6 @@
    }
   }
  },
- "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
- "created_utc": "2026-10-06T18:35:37Z"
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:15:24Z"
 }

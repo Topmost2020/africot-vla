@@ -5,20 +5,37 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 95.35666867833434,
-  "awt": 31.324079662039832,
+  "att": 130.22402589758678,
+  "awt": 55.32820482636845,
+  "att_completed": 122.22135102533173,
+  "awt_completed": 46.22316043425814,
   "awt_by_class": {
-   "car": 29.31648936170213,
-   "danfo": 32.414414414414416,
-   "keke": 35.90128755364807,
-   "okada": 31.56047197640118
+   "car": 53.86642023346303,
+   "danfo": 57.392529411764706,
+   "keke": 53.059124999999995,
+   "okada": 58.11482758620689
   },
-  "throughput": 1692,
-  "completed_trips": 1657,
-  "unfinished": 43,
-  "ped_wait": 18.871382636655948,
+  "awt_by_arm": {
+   "east": 73.22671309192201,
+   "south": 111.45316363636363,
+   "west": 15.263767705382438
+  },
+  "depart_delay_by_arm": {
+   "east": 21.547047353760448,
+   "south": 0.5440727272727273,
+   "west": 0.5073937677053821
+  },
+  "throughput": 1695,
+  "vehicles_measured": 1699,
+  "completed_trips": 1658,
+  "unfinished": 40,
+  "not_inserted": 1,
+  "not_inserted_by_arm": {
+   "west": 1
+  },
+  "ped_wait": 18.906752411575564,
   "ped_count": 311,
-  "aql": 14.917777777777777,
+  "aql": 21.426944444444445,
   "aql_steps": 3600,
   "teleports": 0,
   "jam_teleports": 0,
@@ -30,9 +47,10 @@
   "teleports": 0,
   "decisions": 135,
   "incident": {
-   "inserted": 1200.0,
-   "stopped": 1204.0,
-   "stop_pos": 42.0
+   "closed": 1200.0,
+   "reopened": 2100.0,
+   "lane": "E2C_1",
+   "on_lane_at_close": 8
   },
   "demand": {
    "vehicles": {
@@ -45,7 +63,7 @@
    "scenario": "incident",
    "seed": 2
   },
-  "wall_s": 9.1,
+  "wall_s": 16.8,
   "safety_audit": {
    "violations": 0,
    "by_rule": {},
@@ -54,7 +72,7 @@
     "east": 35,
     "south": 65,
     "xS": 50,
-    "xE": 60,
+    "xE": 65,
     "xW": 60
    }
   },
@@ -115,6 +133,6 @@
    }
   }
  },
- "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
- "created_utc": "2026-10-06T18:33:48Z"
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:12:23Z"
 }

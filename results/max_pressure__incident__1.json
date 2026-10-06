@@ -5,34 +5,50 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 77.03541912632822,
-  "awt": 16.407319952774497,
+  "att": 99.46479094076655,
+  "awt": 29.895685249709636,
+  "att_completed": 98.2486678507993,
+  "awt_completed": 27.95855535820012,
   "awt_by_class": {
-   "car": 16.359843546284225,
-   "danfo": 16.61144578313253,
-   "keke": 16.425101214574898,
-   "okada": 16.304597701149426
+   "car": 30.437848911651727,
+   "danfo": 27.355416666666667,
+   "keke": 31.226561264822134,
+   "okada": 30.160994318181817
   },
-  "throughput": 1741,
-  "completed_trips": 1694,
-  "unfinished": 28,
-  "ped_wait": 12.301587301587302,
+  "awt_by_arm": {
+   "east": 31.216331938633196,
+   "south": 61.906486486486486,
+   "west": 15.195966149506347
+  },
+  "depart_delay_by_arm": {
+   "east": 4.83278940027894,
+   "south": 0.5618918918918918,
+   "west": 0.504851904090268
+  },
+  "throughput": 1736,
+  "vehicles_measured": 1722,
+  "completed_trips": 1689,
+  "unfinished": 33,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 13.438095238095238,
   "ped_count": 315,
-  "aql": 7.971666666666667,
+  "aql": 13.1725,
   "aql_steps": 3600,
   "teleports": 0,
   "jam_teleports": 0,
   "shield_interventions": 75,
-  "decisions": 194,
+  "decisions": 195,
   "safety_violations": 0
  },
  "info": {
   "teleports": 0,
-  "decisions": 194,
+  "decisions": 195,
   "incident": {
-   "inserted": 1200.0,
-   "stopped": 1205.0,
-   "stop_pos": 5.0
+   "closed": 1200.0,
+   "reopened": 2100.0,
+   "lane": "E2C_1",
+   "on_lane_at_close": 4
   },
   "demand": {
    "vehicles": {
@@ -45,17 +61,17 @@
    "scenario": "incident",
    "seed": 1
   },
-  "wall_s": 8.1,
+  "wall_s": 18.9,
   "safety_audit": {
    "violations": 0,
    "by_rule": {},
    "max_no_green_s": {
-    "west": 65,
-    "east": 40,
+    "west": 60,
+    "east": 30,
     "south": 80,
-    "xS": 60,
+    "xS": 65,
     "xE": 70,
-    "xW": 50
+    "xW": 65
    }
   },
   "shield_corrections_by_rule": {
@@ -113,6 +129,6 @@
    }
   }
  },
- "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
- "created_utc": "2026-10-06T18:36:10Z"
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:16:11Z"
 }

@@ -5,34 +5,50 @@
  "seed_role": "evaluation",
  "vlam_backend": null,
  "metrics": {
-  "att": 102.55535390199637,
-  "awt": 36.24440411373261,
+  "att": 118.6035663507109,
+  "awt": 47.450130331753556,
+  "att_completed": 118.8489425981873,
+  "awt_completed": 46.96435045317221,
   "awt_by_class": {
-   "car": 36.03967168262654,
-   "danfo": 37.55045871559633,
-   "keke": 37.92885375494071,
-   "okada": 34.187134502923975
+   "car": 47.45953145917001,
+   "danfo": 48.64910979228487,
+   "keke": 50.52562015503876,
+   "okada": 43.968757225433535
   },
-  "throughput": 1700,
-  "completed_trips": 1653,
-  "unfinished": 35,
-  "ped_wait": 13.612040133779264,
+  "awt_by_arm": {
+   "east": 29.711228323699423,
+   "south": 85.27183006535948,
+   "west": 48.46734782608696
+  },
+  "depart_delay_by_arm": {
+   "east": 1.6678757225433525,
+   "south": 0.5692156862745098,
+   "west": 0.49923188405797103
+  },
+  "throughput": 1702,
+  "vehicles_measured": 1688,
+  "completed_trips": 1655,
+  "unfinished": 33,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 16.17056856187291,
   "ped_count": 299,
-  "aql": 17.153055555555557,
+  "aql": 21.805555555555557,
   "aql_steps": 3600,
   "teleports": 0,
   "jam_teleports": 0,
-  "shield_interventions": 71,
-  "decisions": 267,
+  "shield_interventions": 62,
+  "decisions": 333,
   "safety_violations": 0
  },
  "info": {
   "teleports": 0,
-  "decisions": 267,
+  "decisions": 333,
   "incident": {
-   "inserted": 1200.0,
-   "stopped": 1203.0,
-   "stop_pos": 5.0
+   "closed": 1200.0,
+   "reopened": 2100.0,
+   "lane": "E2C_1",
+   "on_lane_at_close": 3
   },
   "demand": {
    "vehicles": {
@@ -45,21 +61,21 @@
    "scenario": "incident",
    "seed": 0
   },
-  "wall_s": 9.8,
+  "wall_s": 20.0,
   "safety_audit": {
    "violations": 0,
    "by_rule": {},
    "max_no_green_s": {
-    "west": 55,
-    "east": 40,
-    "south": 45,
-    "xS": 50,
-    "xE": 40,
-    "xW": 40
+    "west": 90,
+    "east": 65,
+    "south": 120,
+    "xS": 60,
+    "xE": 110,
+    "xW": 80
    }
   },
   "shield_corrections_by_rule": {
-   "ped_crossing": 71
+   "ped_crossing": 62
   },
   "teleport_reasons": {}
  },
@@ -116,6 +132,6 @@
    }
   }
  },
- "git_hash": "fa0413899b56ff8a955290252a3f58daf483e4aa-dirty",
- "created_utc": "2026-10-06T18:34:50Z"
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:14:10Z"
 }
