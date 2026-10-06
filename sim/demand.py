@@ -27,9 +27,10 @@ def _poisson_times(rng, rate_per_h, end_s):
         times.append(t)
 
 
-def generate(scenario, seed, path, end_s=sc.END_S):
-    """Write routes for (scenario, seed) to `path`. Returns a summary dict."""
-    cfg = sc.get(scenario)
+def generate(scenario, seed, path, end_s=sc.END_S, overrides=None):
+    """Write routes for (scenario, seed) to `path`. Returns a summary dict.
+    `overrides` replaces top-level scenario fields (used only for demand tuning)."""
+    cfg = dict(sc.get(scenario), **(overrides or {}))
     rng = np.random.default_rng([seed, 7919])
     classes = list(cfg["mix"])
     probs = np.array([cfg["mix"][c] for c in classes])
@@ -46,7 +47,7 @@ def generate(scenario, seed, path, end_s=sc.END_S):
             entries.append((t, f'    <vehicle id="{arm}{dest}_{i}" type="{vt}" depart="{t:.2f}" '
                                f'departLane="best" departSpeed="max"{lat}>\n'
                                f'        <route edges="{EDGE_IN[arm]} {EDGE_OUT[dest]}"/>\n    </vehicle>'))
-    # The incident blocker is inserted through TraCI by africot.env (see JunctionEnv._incident).
+    # The incident lane closure is applied through TraCI by africot.env (see JunctionEnv._incident).
     crossings = list(cfg["ped_split"])
     cprobs = np.array([cfg["ped_split"][c] for c in crossings])
     n_ped = 0

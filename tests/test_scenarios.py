@@ -78,19 +78,29 @@ def test_short_run_each_scenario(scenario):
     assert m["throughput"] > 0
 
 
-def test_incident_blocker_stops_on_east_kerb_lane():
+def test_incident_closes_east_kerb_lane_during_window():
+    """No demand vehicle enters E2C_1 between 1200 s and 2100 s, except those
+    already on it at closure; the lane reopens afterwards."""
     env = JunctionEnv()
-    env.reset("incident", 100, end_s=1300)
+    on_lane = {}
+
+    def hook(e):
+        ids = set(e.conn.lane.getLastStepVehicleIDs("E2C_1"))
+        on_lane[e.time] = ids
+
+    env.step_hooks.append(hook)
+    env.reset("incident", 100, end_s=2300)
     try:
         cyc = FixedTime()
         phase = "A"
         while not env.done():
             env.apply_phase(phase, cyc.GREENS[phase])
             phase = {"A": "B", "B": "C", "C": "A"}[phase]
-        c = env.conn
-        assert env.incident_log["inserted"] == 1200
-        assert env.incident_log["stopped"] is not None and env.incident_log["stopped"] <= 1215
-        assert c.vehicle.getLaneID("incident_blocker") == "E2C_1"
-        assert c.vehicle.isStopped("incident_blocker")
+        assert env.incident_log["closed"] == 1200 and env.incident_log["reopened"] == 2100
     finally:
         env.close()
+    at_close = on_lane[1200.0]
+    entered = set().union(*(ids for t, ids in on_lane.items() if 1200 < t <= 2100)) - at_close
+    assert entered == set()
+    after = set().union(*(ids for t, ids in on_lane.items() if t > 2150))
+    assert after  # lane in use again after reopening

@@ -12,7 +12,7 @@ from africot.shield import SafetyAudit, Shield
 
 
 def run_episode(controller, scenario, seed, end_s=sc.END_S, observe=None, step_hooks=None,
-                decision_hook=None, audit=True):
+                decision_hook=None, audit=True, overrides=None):
     """Run `controller` for one episode.
 
     observe(state) -> observation given to the controller and the shield
@@ -28,7 +28,7 @@ def run_episode(controller, scenario, seed, end_s=sc.END_S, observe=None, step_h
         hooks.append(auditor)
     env = JunctionEnv(step_hooks=hooks)
     t0 = _time.time()
-    state = env.reset(scenario, seed, end_s=end_s)
+    state = env.reset(scenario, seed, end_s=end_s, overrides=overrides)
     controller.reset()
     shield.reset()
     decisions = 0
@@ -65,7 +65,7 @@ def run_episode(controller, scenario, seed, end_s=sc.END_S, observe=None, step_h
                     "shield_interventions": shield.interventions, "decisions": decisions}
         if auditor:
             counters["safety_violations"] = info["safety_audit"]["violations"]
-        metrics = compute(tripinfo, sampler, counters=counters)
+        metrics = compute(tripinfo, sampler, counters=counters, route_file=env.route_file)
     finally:
         env.close()
     info["wall_s"] = round(_time.time() - t0, 1)

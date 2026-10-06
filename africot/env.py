@@ -21,6 +21,8 @@ APPROACHES = tuple(APPROACH_EDGES)
 CLASSES = ("car", "danfo", "keke", "okada")
 CROSSINGS = ("xE", "xW", "xS")
 MOVEMENTS = ("WE", "WS", "EW", "ES", "SE", "SW")
+# vClasses of the demand vehicle types (car and keke are passenger, danfo bus, okada motorcycle)
+INCIDENT_BLOCKED_CLASSES = ("passenger", "bus", "motorcycle")
 VTYPES_FILE = os.path.join(signals.SIM_DIR, "vtypes.add.xml")
 
 _label_counter = itertools.count()
@@ -40,11 +42,11 @@ class JunctionEnv:
         self.lanes = {}
 
     # ------------------------------------------------------------------ setup
-    def reset(self, scenario, seed, end_s=sc.END_S):
+    def reset(self, scenario, seed, end_s=sc.END_S, overrides=None):
         self.close()
         self.scenario = scenario
         self.seed = seed
-        self.cfg = sc.get(scenario)
+        self.cfg = dict(sc.get(scenario), **(overrides or {}))
         self.end_s = end_s
         self._tmp = self.out_dir or tempfile.mkdtemp(prefix="africot_")
         os.makedirs(self._tmp, exist_ok=True)
@@ -52,7 +54,8 @@ class JunctionEnv:
         self.route_file = os.path.join(self._tmp, f"routes_{tag}.rou.xml")
         self.tripinfo_file = os.path.join(self._tmp, f"tripinfo_{tag}.xml")
         self.log_file = os.path.join(self._tmp, f"sumo_{tag}.log")
-        self.demand_summary = demand.generate(scenario, seed, self.route_file, end_s=end_s)
+        self.demand_summary = demand.generate(scenario, seed, self.route_file, end_s=end_s,
+                                              overrides=overrides)
         cmd = [sumo_binary("sumo"), "-n", signals.NET_FILE, "-r", self.route_file,
                "-a", VTYPES_FILE, "--lateral-resolution", "0.8", "--step-length", "1",
                "--seed", str(seed), "--end", str(end_s), "--time-to-teleport", "300",
@@ -73,7 +76,9 @@ class JunctionEnv:
         self._prev_ids = {a: set() for a in APPROACHES}
         self.served_since = {a: 0.0 for a in APPROACHES}
         self.incident = self.cfg.get("incident")
-        self.incident_log = {"inserted": None, "stopped": None, "stop_pos": None}
+        self.incident_log = {"closed": None, "reopened": None, "lane": None}
+        if self.incident:
+            self.incident_log["lane"] = f"{self.incident['edge']}_{self.incident['lane_index']}"
         self.conn.trafficlight.setRedYellowGreenState(signals.TLS_ID, self.states["green"]["A"])
         return self.get_state()
 
@@ -95,23 +100,20 @@ class JunctionEnv:
             hook(self)
 
     def _incident(self):
-        """Right lane of the east approach blocked by a broken-down vehicle (SPEC 4, incident)."""
+        """Right (kerb) lane of the east approach closed to demand traffic for the
+        incident window (SPEC 4, incident), through traci.lane.setDisallowed.
+        Vehicles already on the lane when it closes may clear it; no new vehicle can
+        enter it by insertion or lane change until it reopens."""
         inc, c, t, log = self.incident, self.conn, self.time, self.incident_log
-        vid = "incident_blocker"
-        if log["inserted"] is None and t >= inc["start"] - 1 and "incident_route" not in c.route.getIDList():
-            c.route.add("incident_route", [inc["edge"], "C2W"])
-            c.vehicle.add(vid, "incident_route", typeID="blocker", depart="now",
-                          departLane=str(inc["lane_index"]), departPos="free", departSpeed="0")
-        elif log["inserted"] is None and vid in c.vehicle.getIDList():
-            log["inserted"] = t
-            pos = c.vehicle.getLanePosition(vid)
-            stop_pos = min(pos + 5.0, c.lane.getLength(f"{inc['edge']}_{inc['lane_index']}") - 5.0)
-            log["stop_pos"] = round(stop_pos, 1)
-            c.vehicle.setStop(vid, inc["edge"], pos=stop_pos, laneIndex=inc["lane_index"],
-                              duration=float(inc["end"]) - t, until=float(inc["end"]))
-        elif log["stopped"] is None and log["inserted"] is not None and vid in c.vehicle.getIDList() \
-                and c.vehicle.isStopped(vid):
-            log["stopped"] = t
+        lane = f"{inc['edge']}_{inc['lane_index']}"
+        if log["closed"] is None and t >= inc["start"]:
+            self._incident_allowed = list(c.lane.getAllowed(lane))
+            c.lane.setDisallowed(lane, list(INCIDENT_BLOCKED_CLASSES))
+            log["closed"] = t
+            log["on_lane_at_close"] = c.lane.getLastStepVehicleNumber(lane)
+        elif log["closed"] is not None and log["reopened"] is None and t >= inc["end"]:
+            c.lane.setAllowed(lane, self._incident_allowed)
+            log["reopened"] = t
 
     def step_until(self, t):
         t = min(t, self.end_s)
@@ -167,7 +169,7 @@ class JunctionEnv:
                 for v in c.lane.getLastStepVehicleIDs(lane):
                     vt = c.vehicle.getTypeID(v)
                     if vt not in counts:
-                        continue  # incident blocker is not traffic demand
+                        continue  # only demand vehicle types
                     counts[vt] += 1
                     max_wait = max(max_wait, c.vehicle.getWaitingTime(v))
                     if c.vehicle.getSpeed(v) < 0.1:

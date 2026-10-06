@@ -40,18 +40,31 @@ def test_max_pressure_picks_largest_served_queue():
     assert m.decide(_obs("B", 15, zero)) == ("B", 15)
 
 
-def test_tripinfo_excludes_warmup(tmp_path):
+def test_tripinfo_excludes_warmup_and_counts_insertion_delay(tmp_path):
     p = tmp_path / "t.xml"
     p.write_text("""<tripinfos>
-<tripinfo id="a" depart="100" arrival="200" duration="100" waitingTime="50" vType="car"/>
-<tripinfo id="b" depart="400" arrival="460" duration="60" waitingTime="20" vType="car"/>
-<tripinfo id="c" depart="500" arrival="600" duration="100" waitingTime="40" vType="okada"/>
-<tripinfo id="d" depart="3800" arrival="-1" duration="100" waitingTime="40" vType="car"/>
-<tripinfo id="incident_blocker" depart="1200" arrival="2200" duration="1000" waitingTime="900" vType="blocker"/>
+<tripinfo id="Wa" depart="100" departDelay="0" arrival="200" duration="100" waitingTime="50" vType="car"/>
+<tripinfo id="Wb" depart="400" departDelay="0" arrival="460" duration="60" waitingTime="20" vType="car"/>
+<tripinfo id="Sc" depart="520" departDelay="20" arrival="600" duration="80" waitingTime="40" vType="okada"/>
+<tripinfo id="Sd" depart="3800" departDelay="0" arrival="-1" duration="100" waitingTime="40" vType="car"/>
+<tripinfo id="Se" depart="400" departDelay="150" arrival="500" duration="100" waitingTime="0" vType="car"/>
 <personinfo id="p" depart="350"><walk depart="350" arrival="400" waitingTime="12"/></personinfo>
 <personinfo id="q" depart="100"><walk depart="100" arrival="150" waitingTime="99"/></personinfo>
 </tripinfos>""")
-    m = parse_tripinfo(p)
-    assert m["att"] == 80 and m["awt"] == 30
-    assert m["throughput"] == 2 and m["unfinished"] == 1
+    r = tmp_path / "r.xml"
+    r.write_text("""<routes>
+<vehicle id="Wa" type="car" depart="100"/><vehicle id="Wb" type="car" depart="400"/>
+<vehicle id="Sc" type="okada" depart="500"/><vehicle id="Sd" type="car" depart="3800"/>
+<vehicle id="Se" type="car" depart="250"/><vehicle id="Sf" type="car" depart="3700"/>
+</routes>""")
+    m = parse_tripinfo(p, route_file=r)
+    # Se was scheduled at 250 s (warm-up) so it is excluded although it departed at 400 s.
+    # measured: Wb (60, 20), Sc (20+80, 20+40), Sd unfinished (100, 40), Sf never inserted (200, 200)
+    assert m["vehicles_measured"] == 4
+    assert m["att"] == (60 + 100 + 100 + 200) / 4
+    assert m["awt"] == (20 + 60 + 40 + 200) / 4
+    assert m["att_completed"] == 70 and m["awt_completed"] == 30
+    assert m["not_inserted"] == 1 and m["not_inserted_by_arm"] == {"south": 1}
+    assert m["unfinished"] == 1
+    assert m["throughput"] == 3  # Wb, Sc, Se arrived after the warm-up
     assert m["ped_wait"] == 12 and m["ped_count"] == 1
