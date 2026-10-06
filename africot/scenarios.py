@@ -27,7 +27,9 @@ _NORMAL = {
     "context": "",
 }
 _MARKET = {
-    "flows": {"W": 700, "E": 700, "S": 550},
+    # SPEC table gives S = 550 veh/h. Tuned on tuning seeds 100-104 to 200 veh/h
+    # (results/demand_tuning.json, sim/tune_demand.py; DEVIATIONS.md).
+    "flows": {"W": 700, "E": 700, "S": 200},
     "mix": MIX_MARKET,
     "ped_per_h": 900,
     "ped_split": {"xE": 0.4, "xW": 0.4, "xS": 0.2},

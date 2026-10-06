@@ -1,0 +1,340 @@
+{
+ "scenario": "market",
+ "controller": "fixed_time",
+ "seeds": [
+  100,
+  101,
+  102,
+  103,
+  104
+ ],
+ "criterion": "south-arm vehicles never inserted at 3900 s <= 5 on every tuning seed, and mean south insertion delay < 60 s",
+ "candidates": [
+  {
+   "south_flow": 550,
+   "runs": [
+    {
+     "seed": 100,
+     "awt": 428.6414330218068,
+     "awt_completed": 74.13816689466485,
+     "south_depart_delay": 1247.2762923351158,
+     "south_not_inserted": 383,
+     "not_inserted": 383,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 101,
+     "awt": 374.1761263593993,
+     "awt_completed": 77.26152832674572,
+     "south_depart_delay": 1112.997075471698,
+     "south_not_inserted": 330,
+     "not_inserted": 330,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 102,
+     "awt": 354.8610137795276,
+     "awt_completed": 71.04847731510255,
+     "south_depart_delay": 1059.4717367458868,
+     "south_not_inserted": 353,
+     "not_inserted": 353,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 103,
+     "awt": 452.3321329787235,
+     "awt_completed": 85.312543798178,
+     "south_depart_delay": 1315.0895404411765,
+     "south_not_inserted": 370,
+     "not_inserted": 371,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 104,
+     "awt": 409.7210821847882,
+     "awt_completed": 79.90566037735849,
+     "south_depart_delay": 1150.0763084922012,
+     "south_not_inserted": 395,
+     "not_inserted": 395,
+     "jam_teleports": 0
+    }
+   ],
+   "meets_criterion": false,
+   "mean_awt": 403.94635766484913,
+   "mean_south_depart_delay": 1176.9821906972156,
+   "max_south_not_inserted": 395
+  },
+  {
+   "south_flow": 300,
+   "runs": [
+    {
+     "seed": 100,
+     "awt": 160.57719182200842,
+     "awt_completed": 74.72684563758389,
+     "south_depart_delay": 460.01499999999993,
+     "south_not_inserted": 86,
+     "not_inserted": 86,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 101,
+     "awt": 139.85652687536918,
+     "awt_completed": 69.51176470588236,
+     "south_depart_delay": 383.5460616438356,
+     "south_not_inserted": 79,
+     "not_inserted": 79,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 102,
+     "awt": 134.54494623655916,
+     "awt_completed": 65.41748768472907,
+     "south_depart_delay": 404.95170212765953,
+     "south_not_inserted": 75,
+     "not_inserted": 75,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 103,
+     "awt": 190.19365069739237,
+     "awt_completed": 75.57426420260096,
+     "south_depart_delay": 580.2096805111821,
+     "south_not_inserted": 112,
+     "not_inserted": 113,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 104,
+     "awt": 133.69045915324986,
+     "awt_completed": 72.36803713527851,
+     "south_depart_delay": 313.6214576271187,
+     "south_not_inserted": 84,
+     "not_inserted": 84,
+     "jam_teleports": 0
+    }
+   ],
+   "meets_criterion": false,
+   "mean_awt": 151.7725549569158,
+   "mean_south_depart_delay": 428.46878038195916,
+   "max_south_not_inserted": 112
+  },
+  {
+   "south_flow": 275,
+   "runs": [
+    {
+     "seed": 100,
+     "awt": 149.32952322738387,
+     "awt_completed": 73.6972972972973,
+     "south_depart_delay": 428.00996309963097,
+     "south_not_inserted": 78,
+     "not_inserted": 78,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 101,
+     "awt": 123.5627403846154,
+     "awt_completed": 66.76872536136662,
+     "south_depart_delay": 303.29182509505705,
+     "south_not_inserted": 57,
+     "not_inserted": 57,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 102,
+     "awt": 113.5113016055046,
+     "awt_completed": 64.12261244608749,
+     "south_depart_delay": 296.676332046332,
+     "south_not_inserted": 46,
+     "not_inserted": 46,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 103,
+     "awt": 136.09623464373465,
+     "awt_completed": 75.16812373907196,
+     "south_depart_delay": 314.17797945205473,
+     "south_not_inserted": 65,
+     "not_inserted": 66,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 104,
+     "awt": 120.57196256038648,
+     "awt_completed": 73.33576642335767,
+     "south_depart_delay": 266.81605839416056,
+     "south_not_inserted": 70,
+     "not_inserted": 70,
+     "jam_teleports": 0
+    }
+   ],
+   "meets_criterion": false,
+   "mean_awt": 128.61435248432502,
+   "mean_south_depart_delay": 321.79443161744706,
+   "max_south_not_inserted": 78
+  },
+  {
+   "south_flow": 250,
+   "runs": [
+    {
+     "seed": 100,
+     "awt": 107.1304194941394,
+     "awt_completed": 66.89353099730458,
+     "south_depart_delay": 210.4414453125,
+     "south_not_inserted": 53,
+     "not_inserted": 53,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 101,
+     "awt": 73.38320800485143,
+     "awt_completed": 56.112264763140814,
+     "south_depart_delay": 64.19056451612903,
+     "south_not_inserted": 27,
+     "not_inserted": 27,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 102,
+     "awt": 107.86592227378188,
+     "awt_completed": 57.94865372573575,
+     "south_depart_delay": 287.0389539748954,
+     "south_not_inserted": 63,
+     "not_inserted": 63,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 103,
+     "awt": 125.84925187032418,
+     "awt_completed": 76.44436906377204,
+     "south_depart_delay": 273.2332089552239,
+     "south_not_inserted": 50,
+     "not_inserted": 51,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 104,
+     "awt": 81.54902080783353,
+     "awt_completed": 63.785102175346076,
+     "south_depart_delay": 74.09337301587303,
+     "south_not_inserted": 35,
+     "not_inserted": 35,
+     "jam_teleports": 0
+    }
+   ],
+   "meets_criterion": false,
+   "mean_awt": 99.1555644901861,
+   "mean_south_depart_delay": 181.7995091549243,
+   "max_south_not_inserted": 63
+  },
+  {
+   "south_flow": 225,
+   "runs": [
+    {
+     "seed": 100,
+     "awt": 87.12967984934086,
+     "awt_completed": 63.0942760942761,
+     "south_depart_delay": 111.99640350877192,
+     "south_not_inserted": 28,
+     "not_inserted": 28,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 101,
+     "awt": 50.163134236453196,
+     "awt_completed": 44.558861578266495,
+     "south_depart_delay": 0.5573094170403589,
+     "south_not_inserted": 0,
+     "not_inserted": 0,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 102,
+     "awt": 49.226958823529415,
+     "awt_completed": 43.26206475259621,
+     "south_depart_delay": 0.5083255813953489,
+     "south_not_inserted": 0,
+     "not_inserted": 0,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 103,
+     "awt": 77.56198482932997,
+     "awt_completed": 61.84040404040404,
+     "south_depart_delay": 51.45674796747967,
+     "south_not_inserted": 17,
+     "not_inserted": 18,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 104,
+     "awt": 78.64761576971215,
+     "awt_completed": 60.92179144385027,
+     "south_depart_delay": 29.769999999999996,
+     "south_not_inserted": 20,
+     "not_inserted": 20,
+     "jam_teleports": 0
+    }
+   ],
+   "meets_criterion": false,
+   "mean_awt": 68.54587470167311,
+   "mean_south_depart_delay": 38.85775729493746,
+   "max_south_not_inserted": 28
+  },
+  {
+   "south_flow": 200,
+   "runs": [
+    {
+     "seed": 100,
+     "awt": 63.945050825921214,
+     "awt_completed": 54.73063973063973,
+     "south_depart_delay": 14.258899521531099,
+     "south_not_inserted": 4,
+     "not_inserted": 4,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 101,
+     "awt": 45.007308887507776,
+     "awt_completed": 41.9621409921671,
+     "south_depart_delay": 0.5534134615384615,
+     "south_not_inserted": 0,
+     "not_inserted": 0,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 102,
+     "awt": 43.05667861409797,
+     "awt_completed": 38.43972939729397,
+     "south_depart_delay": 0.5256084656084656,
+     "south_not_inserted": 0,
+     "not_inserted": 0,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 103,
+     "awt": 25.606461538461538,
+     "awt_completed": 23.27906976744186,
+     "south_depart_delay": 0.6222321428571428,
+     "south_not_inserted": 0,
+     "not_inserted": 1,
+     "jam_teleports": 0
+    },
+    {
+     "seed": 104,
+     "awt": 47.84671964399237,
+     "awt_completed": 45.58839050131926,
+     "south_depart_delay": 0.52,
+     "south_not_inserted": 0,
+     "not_inserted": 0,
+     "jam_teleports": 0
+    }
+   ],
+   "meets_criterion": true,
+   "mean_awt": 45.09244390199617,
+   "mean_south_depart_delay": 3.2960307183070343,
+   "max_south_not_inserted": 4
+  }
+ ],
+ "selected_south_flow": 200,
+ "git_hash": "a96bfe1e1b8a127e0d48d00330beaef39f7279b4"
+}
