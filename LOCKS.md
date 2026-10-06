@@ -3,5 +3,5 @@
 One line per role. Empty means free. Format: `<role>: <UTC ISO time>`
 
 builder:
-reviewer:
+reviewer: 2026-10-06T20:26:17Z
 documenter:
