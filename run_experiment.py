@@ -14,6 +14,7 @@ import sys
 import time
 
 from africot import scenarios as sc
+from africot import shield
 from africot.perception import Perception
 from africot.runner import run_episode
 
@@ -76,6 +77,8 @@ def run(controller, scenario, seed, force=False, results_dir=RESULTS_DIR, args=N
             "controller_params": {k: v for k, v in vars(type(ctrl)).items()
                                   if k.isupper() and isinstance(v, (int, float, str, dict, tuple))},
             "perception": {"miss_p": 0.05, "rel_sd": 0.10, "min_sd": 0.5, "clean": False},
+            "shield": {"enabled": True, "min_green": shield.MIN_GREEN, "max_green": shield.MAX_GREEN,
+                       "starvation_s": shield.STARVATION_S, "crossing_times": shield.crossing_times()},
             **{k: v for k, v in extra.items() if k != "vlam_backend"},
         },
         "git_hash": git_hash(),
@@ -87,7 +90,8 @@ def run(controller, scenario, seed, force=False, results_dir=RESULTS_DIR, args=N
     if not quiet:
         m = metrics
         print(f"{controller} {scenario} {seed}: AWT {m['awt']:.1f} ATT {m['att']:.1f} AQL {m['aql']:.1f} "
-              f"thr {m['throughput']} ped {m['ped_wait']:.1f} teleports {m['teleports']} -> {path}")
+              f"thr {m['throughput']} ped {m['ped_wait']:.1f} teleports {m['teleports']} "
+              f"shield {m['shield_interventions']} violations {m.get('safety_violations')} -> {path}")
     return path
 
 
