@@ -20,6 +20,7 @@ APPROACH_EDGES = {"west": "W2C", "east": "E2C", "south": "S2C"}
 APPROACHES = tuple(APPROACH_EDGES)
 CLASSES = ("car", "danfo", "keke", "okada")
 CROSSINGS = ("xE", "xW", "xS")
+MOVEMENTS = ("WE", "WS", "EW", "ES", "SE", "SW")
 VTYPES_FILE = os.path.join(signals.SIM_DIR, "vtypes.add.xml")
 
 _label_counter = itertools.count()
@@ -153,6 +154,8 @@ class JunctionEnv:
         st = {"time": self.time, "phase": self.phase, "time_in_phase": self.time - self.phase_start,
               "approaches": {}, "ped_waiting": {x: 0 for x in CROSSINGS},
               "ped_max_wait": {x: 0.0 for x in CROSSINGS}}
+        st["movement_queues"] = {m: 0 for m in MOVEMENTS}
+        arm = {"west": "W", "east": "E", "south": "S"}
         for a, lanes in self.lanes.items():
             counts = {k: 0 for k in CLASSES}
             halting_by_class = {k: 0 for k in CLASSES}
@@ -160,17 +163,18 @@ class JunctionEnv:
             halting = 0
             occ = 0.0
             for lane in lanes:
-                halting += c.lane.getLastStepHaltingNumber(lane)
                 occ += c.lane.getLastStepOccupancy(lane)
                 for v in c.lane.getLastStepVehicleIDs(lane):
                     vt = c.vehicle.getTypeID(v)
                     if vt not in counts:
                         continue  # incident blocker is not traffic demand
                     counts[vt] += 1
-                    w = c.vehicle.getWaitingTime(v)
+                    max_wait = max(max_wait, c.vehicle.getWaitingTime(v))
                     if c.vehicle.getSpeed(v) < 0.1:
+                        halting += 1
                         halting_by_class[vt] += 1
-                    max_wait = max(max_wait, w)
+                        dest = c.vehicle.getRoute(v)[-1]
+                        st["movement_queues"][arm[a] + signals.EDGE_TO_ARM_OUT[dest]] += 1
             st["approaches"][a] = {"queue": halting, "counts": counts, "halting_by_class": halting_by_class,
                                    "occupancy": occ / len(lanes), "max_wait": max_wait,
                                    "departures": self.departed_counts[a]}

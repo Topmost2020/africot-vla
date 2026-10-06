@@ -40,6 +40,9 @@ PHASE_APPROACHES = {"A": ("west", "east"), "B": ("east",), "C": ("south",)}
 PHASE_MOVEMENTS = {p: tuple(m for m in sig if not m.startswith("x")) for p, sig in PHASE_SIGNALS.items()}
 PHASE_CROSSINGS = {p: tuple(m for m in sig if m.startswith("x")) for p, sig in PHASE_SIGNALS.items()}
 
+# Movements each phase serves with right of way (permissive E->S in A is not counted).
+PHASE_SERVED = {"A": ("WE", "WS", "EW"), "B": ("ES", "EW"), "C": ("SE", "SW")}
+
 # Geometric conflicts between movements (vehicle-vehicle and vehicle-crossing).
 VEHICLE_CONFLICTS = {
     frozenset({"WE", "ES"}), frozenset({"WE", "SW"}), frozenset({"WE", "SE"}),
