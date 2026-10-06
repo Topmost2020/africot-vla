@@ -4,7 +4,7 @@ States: todo, building, built, approved, changes_requested, documented. Protocol
 
 | id | stage | state | notes |
 |---|---|---|---|
-| S0 | Environment and skeleton | todo | |
+| S0 | Environment and skeleton | building | 2026-10-06 builder started |
 | S1 | Junction and scenarios | todo | |
 | S2 | Perception, metrics, baselines | todo | |
 | S3 | Safety shield | todo | |
