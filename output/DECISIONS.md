@@ -29,3 +29,14 @@
 - Not cited: LeWM, VLA-JEPA, Lota-Carinae, AfriSCOP-CC. Webster 1958 dropped (unverifiable). LLMLight cited as arXiv preprint (venue unconfirmed).
 - Numbers in PLAN.md were ignored; all numbers come from facts/facts.json built by scripts/build_facts.py from committed repo files.
 - Environment: the run happens on the user's Windows machine (not a cloud sandbox). LibreOffice is absent; PDF conversion and field refresh use Microsoft Word through COM if it works (see output/README.md).
+
+## Cloud framing change (user instruction during the run)
+- New dissertation title: "A Cloud-Based Traffic Control System for Sub-Saharan African Cities Combining Chain-of-Thought, Vision-Language-Action Models and Latent World Models", subtitle "Cloud-Hosted Reasoning with Edge Fallback for Intermittent Connectivity". Cover shows title and subtitle; the certification page shows the title only, as the template does.
+- Framing: cloud is the intended primary tier for layers 3 to 8 of Dr. Fasina's framework; layer 2 carries compressed keyframes; the on-site fast loop and safety shield are the resilience tier. A new "Cloud deployment architecture" section was added to the methodology chapter and cloud deployment and measurement to future work. No cloud deployment has been built or tested; every document says so.
+- Chapter length budgets were enforced with scripts/wordcount.py (chapters total about 17,700 prose words, excluding table rows and figure lines).
+
+## Toolchain decisions
+- Microsoft Word was NOT used for the dissertation outputs: on this machine Word applies a corporate sensitivity label that encrypts saved .docx and exported PDF files, which would make them unreadable outside the organisation. The documents are built with python-docx and refreshed and converted by LibreOffice 26.2.6 (extracted from the official MSI to C:\lo with lessmsi, since installation needs admin rights). The master .docx is the LibreOffice-refreshed file (table of contents, list of figures and list of tables populated).
+- Reference entries are plain text from the verified lists; APA italics for titles and venues are not applied (the lists do not encode italics). FLAG: italicise titles and volumes in Word before submission.
+- COLAB-block text is highlighted yellow in the docx (and visible in the PDF) so that the places to update when africot_full results exist are obvious; remove the highlight after updating.
+- Journal paper and demo: taken over by other agents (branches claude/paper and claude/demo) per the user; the paper source and build in this branch are a snapshot and are not maintained here.
