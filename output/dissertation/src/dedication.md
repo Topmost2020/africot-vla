@@ -1,0 +1,1 @@
+This work is dedicated to [name of family member or loved ones], and to everyone who spends hours each day in traffic on the roads of Lagos and other African cities, in the hope that better tools will give some of that time back.
