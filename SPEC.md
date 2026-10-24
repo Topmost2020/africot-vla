@@ -2,7 +2,7 @@
 
 This is the single source of truth for the build. Every agent (builder, reviewer, documenter) works from this file. The visual version is `docs/design.html`.
 
-Author: Temitope W. Ariyo, Machine Learning Research Group, Department of Artificial Intelligence and Robotics, University of Lagos. Supervisor: Dr. Ebun P. Fasina.
+Author: Temitope W. Ariyo, Faculty of Computing and Informatics, Department of Computer Science, University of Lagos. Supervisor: Dr. Ebun P. Fasina.
 
 ## 1. Goal
 
