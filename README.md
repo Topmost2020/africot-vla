@@ -7,4 +7,4 @@ Single-junction prototype of AfriCoT-VLA, a traffic signal control system for Su
 - Design overview: [docs/design.html](docs/design.html)
 - Stage documentation: [docs/stages/](docs/stages/)
 
-Part of the MSc dissertation of Temitope W. Ariyo, Department of Artificial Intelligence and Robotics, University of Lagos. Supervisor: Dr. Ebun P. Fasina.
+Part of the MSc dissertation of Temitope W. Ariyo, Faculty of Computing and Informatics, Department of Computer Science, University of Lagos. Supervisor: Dr. Ebun P. Fasina.
