@@ -4,11 +4,7 @@ TEMITOPE W. ARIYO; EBUN P. FASINA
 
 temitopeariyo6@gmail.com, efasina@unilag.edu.ng
 
-Machine Learning Research Group,
-
-Department of Artificial Intelligence and Robotics,
-
-Faculty of Computing and Informatics,
+Faculty of Computing and Informatics, Department of Computer Science,
 
 University of Lagos
 

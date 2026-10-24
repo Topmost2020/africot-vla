@@ -2,7 +2,7 @@ Towards a Unified Framework of Vision-Language-Action Models and Latent World Mo
 
 Temitope W. Ariyo1* and Ebun P. Fasina1
 
-1Machine Learning Research Group, Department of Artificial Intelligence and Robotics, Faculty of Computing and Informatics, University of Lagos, Akoka, Lagos, Nigeria
+1Faculty of Computing and Informatics, Department of Computer Science, University of Lagos, Akoka, Lagos, Nigeria
 
 temitopeariyo6@gmail.com, efasina@unilag.edu.ng
 

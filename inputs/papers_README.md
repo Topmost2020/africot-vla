@@ -1,6 +1,6 @@
 # VLA + Latent World Model papers (SSA)
 
-Papers for "Towards a unified framework of vision-language-action models and latent world models for low-resource, infrastructure-constrained environments in Sub-Saharan Africa" by Temitope W. Ariyo and Ebun P. Fasina, Machine Learning Research Group, Department of Artificial Intelligence and Robotics, University of Lagos.
+Papers for "Towards a unified framework of vision-language-action models and latent world models for low-resource, infrastructure-constrained environments in Sub-Saharan Africa" by Temitope W. Ariyo and Ebun P. Fasina, Faculty of Computing and Informatics, Department of Computer Science, University of Lagos.
 
 | Folder | Contents |
 |---|---|

@@ -4,7 +4,7 @@ Context for building the AfriCoT-VLA traffic-control system. Exported from the "
 
 ## Author
 
-- Temitope W. Ariyo, Machine Learning Research Group, Department of Artificial Intelligence and Robotics, Faculty of Computing and Informatics, University of Lagos.
+- Temitope W. Ariyo, Faculty of Computing and Informatics, Department of Computer Science, University of Lagos.
 - Supervisor: Dr. Fasina.
 - There are two related works:
   - the dissertation (AfriCoT-VLA)

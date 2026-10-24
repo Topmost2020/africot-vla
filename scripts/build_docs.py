@@ -630,7 +630,7 @@ def build_paper(out_path):
     r = p.add_run("1"); set_font(r, 12); r.font.superscript = True
     p = para(doc, "", C, space_after=2)
     r = p.add_run("1"); set_font(r, 10.5); r.font.superscript = True
-    r = p.add_run("Machine Learning Research Group, Department of Artificial Intelligence and Robotics, Faculty of Computing and Informatics, University of Lagos, Akoka, Lagos, Nigeria")
+    r = p.add_run("Faculty of Computing and Informatics, Department of Computer Science, University of Lagos, Akoka, Lagos, Nigeria")
     set_font(r, 10.5)
     para(doc, "temitopeariyo6@gmail.com, efasina@unilag.edu.ng", C, size=10.5, space_after=2)
     para(doc, "*Corresponding author", C, italic=True, size=10.5, space_after=12)
