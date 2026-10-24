@@ -8,4 +8,4 @@
   `dtype="bfloat16"` replaced by `dtype="float16"` in africot/vlam.py (the T4 has no native bfloat16).
   The `-dirty` suffix on `git_hash` in each result file comes from that change; no repository file was edited.
 - Result files: `africot_full__<scenario>__<seed>.json`, copied unchanged from Google Drive.
-- Not yet done: summary.csv, summary.md and the figures have not been regenerated with these runs.
+- Summary tables: results/summary.csv and summary.md now include africot_full (rows added, existing rows unchanged). The figures have not been regenerated with these runs.
