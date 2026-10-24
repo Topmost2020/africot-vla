@@ -83,7 +83,7 @@ A local background agent stops when the laptop sleeps or shuts down. For work th
 
 ## 5. Open decisions for the user
 
-1. Front matter: the template cover shows Department of Computer Sciences and "Master of Information Technology in Computer Science", but your project file says Department of Artificial Intelligence and Robotics. Which department and degree title go on the cover and certification? Same question for "Dr. E. P. Fasina" and the department on the certification page.
+1. Front matter: the template cover shows Department of Computer Sciences and "Master of Information Technology in Computer Science", but an earlier project file named a different department (now corrected to Faculty of Computing and Informatics, Department of Computer Science). Which department and degree title go on the cover and certification? Same question for "Dr. E. P. Fasina" and the department on the certification page.
 2. Hugging Face: do you have an account, and will you create the Space or give a token?
 3. GPU run for africot_full: will you run the Colab notebook, or report africot_full as implemented but not yet evaluated?
 4. Scope: the repo is a single junction; CLAUDE.md prefers a 2-3 junction corridor. Report single junction honestly and put the corridor in future work (recommended), or extend the code first?

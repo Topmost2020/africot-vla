@@ -11,14 +11,14 @@
 - Author on cover: ARIYO, TEMITOPE WILLIAMS (cover, capitals as in the template); certification: "Ariyo, Temitope Williams". Matric 249074175. Full name supplied by the user during the run; no further confirmation needed.
 - Supervisor: Dr. Ebun P. Fasina; certification page uses "Dr. E. P. Fasina" as in the template.
 - Head of Department: "Prof. F. A. Oladeji" copied from the template. FLAG: confirm this is the current Head of Department.
-- Department on cover/certification: Department of Computer Sciences (template), not "Artificial Intelligence and Robotics" as in CLAUDE.md. FLAG: the author's group affiliation (Machine Learning Research Group, Department of Artificial Intelligence and Robotics) is kept on the journal paper only. Confirm which is correct for the dissertation.
+- Department on cover/certification and on the journal paper: Faculty of Computing and Informatics, Department of Computer Science, as the author instructed. An earlier project file named a different department; it has been corrected everywhere.
 - Degree: Master of Information Technology in Computer Science; October 2026.
 - Title used: "A Traffic Control System for Sub-Saharan African Cities Combining Chain-of-Thought, Vision-Language-Action Models and Latent World Models" (TASK.md wording; CLAUDE.md abbreviates CoT and VLAMs).
 - Dedication and acknowledgement are short drafts with square-bracket placeholders for personal names.
 
 ## Journal paper
 - Co-author email: the existing paper's front matter gives efasina@unilag.edu.ng for Ebun P. Fasina (not a placeholder there) and temitopeariyo6@gmail.com for the first author. The new paper copies exactly those. FLAG: CLAUDE.md says the email was a placeholder; confirm that the address in the submitted paper is real.
-- Affiliation on the paper follows the existing paper (Machine Learning Research Group, Department of Artificial Intelligence and Robotics).
+- Affiliation on the paper: Faculty of Computing and Informatics, Department of Computer Science (corrected at the author's instruction).
 
 ## Scope and evidence
 - africot_full: no reportable africot_full runs exist in results/ (checked by script, facts.africot_full_reportable_runs = 0). Every document is written for the "implemented, wiring-tested, not yet evaluated" case; every africot_full statement is isolated in one marked place per document and listed in output/UPDATE_WHEN_COLAB_FINISHES.md.
