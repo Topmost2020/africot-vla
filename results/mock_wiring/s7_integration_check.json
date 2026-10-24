@@ -1,0 +1,805 @@
+{
+ "backend": "mock",
+ "note": "wiring check only; mock-VLAM runs are never reported as VLAM results",
+ "runs": [
+  {
+   "scenario": "normal",
+   "seed": 0,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 18.75877962085308,
+   "safety_violations": 0,
+   "slow_loop_calls": 13,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [],
+   "log_file": "logs/africot_full__normal__0__mock.jsonl"
+  },
+  {
+   "scenario": "normal",
+   "seed": 1,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 20.978728222996516,
+   "safety_violations": 0,
+   "slow_loop_calls": 13,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [],
+   "log_file": "logs/africot_full__normal__1__mock.jsonl"
+  },
+  {
+   "scenario": "normal",
+   "seed": 2,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 19.92796939376104,
+   "safety_violations": 0,
+   "slow_loop_calls": 13,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [],
+   "log_file": "logs/africot_full__normal__2__mock.jsonl"
+  },
+  {
+   "scenario": "normal",
+   "seed": 3,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 26.649741480611045,
+   "safety_violations": 0,
+   "slow_loop_calls": 13,
+   "parse_failures": 0,
+   "novelty_triggers": 2,
+   "novelty_trigger_times": [
+    891.0,
+    2719.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 891.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.6952934846659202,
+     "median_prev": 1.2798827265582033
+    },
+    {
+     "time": 2719.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.6278134839743827,
+     "median_prev": 0.7695675343162038
+    }
+   ],
+   "log_file": "logs/africot_full__normal__3__mock.jsonl"
+  },
+  {
+   "scenario": "normal",
+   "seed": 4,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 23.32010465116279,
+   "safety_violations": 0,
+   "slow_loop_calls": 14,
+   "parse_failures": 0,
+   "novelty_triggers": 1,
+   "novelty_trigger_times": [
+    2578.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 2578.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.1207994141152327,
+     "median_prev": 1.0578885552823807
+    }
+   ],
+   "log_file": "logs/africot_full__normal__4__mock.jsonl"
+  },
+  {
+   "scenario": "market",
+   "seed": 0,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 24.048359621451105,
+   "safety_violations": 0,
+   "slow_loop_calls": 13,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [],
+   "log_file": "logs/africot_full__market__0__mock.jsonl"
+  },
+  {
+   "scenario": "market",
+   "seed": 1,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 23.76664,
+   "safety_violations": 0,
+   "slow_loop_calls": 14,
+   "parse_failures": 0,
+   "novelty_triggers": 3,
+   "novelty_trigger_times": [
+    1809.0,
+    1945.0,
+    2077.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1809.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.6927080288281537,
+     "median_prev": 0.774550804849711
+    },
+    {
+     "time": 1945.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.8398111179541012,
+     "median_prev": 0.9025408318307625
+    },
+    {
+     "time": 2077.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.008825951673221,
+     "median_prev": 0.9628588239549214
+    }
+   ],
+   "log_file": "logs/africot_full__market__1__mock.jsonl"
+  },
+  {
+   "scenario": "market",
+   "seed": 2,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 23.349962640099626,
+   "safety_violations": 0,
+   "slow_loop_calls": 13,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [],
+   "log_file": "logs/africot_full__market__2__mock.jsonl"
+  },
+  {
+   "scenario": "market",
+   "seed": 3,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 28.84024420788979,
+   "safety_violations": 0,
+   "slow_loop_calls": 13,
+   "parse_failures": 0,
+   "novelty_triggers": 1,
+   "novelty_trigger_times": [
+    1521.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1521.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.7855615801831515,
+     "median_prev": 0.8693673088137344
+    }
+   ],
+   "log_file": "logs/africot_full__market__3__mock.jsonl"
+  },
+  {
+   "scenario": "market",
+   "seed": 4,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 23.04814471243043,
+   "safety_violations": 0,
+   "slow_loop_calls": 14,
+   "parse_failures": 0,
+   "novelty_triggers": 4,
+   "novelty_trigger_times": [
+    3525.0,
+    3650.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 635.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.3339563818763782,
+     "median_prev": 0.6583782476897004
+    },
+    {
+     "time": 3397.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.2998206615022325,
+     "median_prev": 0.6491339772136004
+    },
+    {
+     "time": 3525.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.4674701596438566,
+     "median_prev": 0.6491339772136004
+    },
+    {
+     "time": 3650.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.055800543424646,
+     "median_prev": 0.7776539079190404
+    }
+   ],
+   "log_file": "logs/africot_full__market__4__mock.jsonl"
+  },
+  {
+   "scenario": "incident",
+   "seed": 0,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 33.411030805687204,
+   "safety_violations": 0,
+   "slow_loop_calls": 14,
+   "parse_failures": 0,
+   "novelty_triggers": 2,
+   "novelty_trigger_times": [
+    1635.0,
+    3350.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1635.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.2582330073606567,
+     "median_prev": 1.1115163416061686
+    },
+    {
+     "time": 3350.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.8277136128248412,
+     "median_prev": 0.8664340704833693
+    }
+   ],
+   "log_file": "logs/africot_full__incident__0__mock.jsonl"
+  },
+  {
+   "scenario": "incident",
+   "seed": 1,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 32.910783972125444,
+   "safety_violations": 0,
+   "slow_loop_calls": 14,
+   "parse_failures": 0,
+   "novelty_triggers": 1,
+   "novelty_trigger_times": [
+    1943.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1943.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.965379894710889,
+     "median_prev": 1.4036769154544864
+    }
+   ],
+   "log_file": "logs/africot_full__incident__1__mock.jsonl"
+  },
+  {
+   "scenario": "incident",
+   "seed": 2,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 36.81731606827546,
+   "safety_violations": 0,
+   "slow_loop_calls": 15,
+   "parse_failures": 0,
+   "novelty_triggers": 2,
+   "novelty_trigger_times": [
+    1283.0,
+    1403.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1283.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.9685586086362978,
+     "median_prev": 0.9747586101359755
+    },
+    {
+     "time": 1403.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.105082710036677,
+     "median_prev": 0.9946125396313392
+    }
+   ],
+   "log_file": "logs/africot_full__incident__2__mock.jsonl"
+  },
+  {
+   "scenario": "incident",
+   "seed": 3,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 30.464665099882488,
+   "safety_violations": 0,
+   "slow_loop_calls": 14,
+   "parse_failures": 0,
+   "novelty_triggers": 2,
+   "novelty_trigger_times": [
+    891.0,
+    1913.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 891.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.6952934846659202,
+     "median_prev": 1.2798827265582033
+    },
+    {
+     "time": 1913.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.096281486443069,
+     "median_prev": 1.0271433674385881
+    }
+   ],
+   "log_file": "logs/africot_full__incident__3__mock.jsonl"
+  },
+  {
+   "scenario": "incident",
+   "seed": 4,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 32.76836046511628,
+   "safety_violations": 0,
+   "slow_loop_calls": 15,
+   "parse_failures": 0,
+   "novelty_triggers": 3,
+   "novelty_trigger_times": [
+    1398.0,
+    1526.0,
+    1648.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1398.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.7127426099965746,
+     "median_prev": 0.7936985219491688
+    },
+    {
+     "time": 1526.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.2217313606362845,
+     "median_prev": 0.8779495289345176
+    },
+    {
+     "time": 1648.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.2535830689741294,
+     "median_prev": 0.9272812619233904
+    }
+   ],
+   "log_file": "logs/africot_full__incident__4__mock.jsonl"
+  },
+  {
+   "scenario": "outage",
+   "seed": 0,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 31.855930599369085,
+   "safety_violations": 0,
+   "slow_loop_calls": 9,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ],
+    [
+     1200.0,
+     "offline_hold_last"
+    ],
+    [
+     1807.0,
+     "offline_cached_schedule"
+    ],
+    [
+     2413.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1200.0,
+     "event": "connectivity",
+     "from": "online",
+     "to": "offline_hold_last"
+    },
+    {
+     "time": 1807.0,
+     "event": "connectivity",
+     "from": "offline_hold_last",
+     "to": "offline_cached_schedule"
+    },
+    {
+     "time": 2413.0,
+     "event": "connectivity",
+     "from": "offline_cached_schedule",
+     "to": "online"
+    }
+   ],
+   "log_file": "logs/africot_full__outage__0__mock.jsonl"
+  },
+  {
+   "scenario": "outage",
+   "seed": 1,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 26.29648615384615,
+   "safety_violations": 0,
+   "slow_loop_calls": 9,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ],
+    [
+     1200.0,
+     "offline_hold_last"
+    ],
+    [
+     1818.0,
+     "offline_cached_schedule"
+    ],
+    [
+     2407.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1200.0,
+     "event": "connectivity",
+     "from": "online",
+     "to": "offline_hold_last"
+    },
+    {
+     "time": 1818.0,
+     "event": "connectivity",
+     "from": "offline_hold_last",
+     "to": "offline_cached_schedule"
+    },
+    {
+     "time": 2407.0,
+     "event": "connectivity",
+     "from": "offline_cached_schedule",
+     "to": "online"
+    }
+   ],
+   "log_file": "logs/africot_full__outage__1__mock.jsonl"
+  },
+  {
+   "scenario": "outage",
+   "seed": 2,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 23.96515566625155,
+   "safety_violations": 0,
+   "slow_loop_calls": 9,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ],
+    [
+     1210.0,
+     "offline_hold_last"
+    ],
+    [
+     1820.0,
+     "offline_cached_schedule"
+    ],
+    [
+     2401.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1210.0,
+     "event": "connectivity",
+     "from": "online",
+     "to": "offline_hold_last"
+    },
+    {
+     "time": 1820.0,
+     "event": "connectivity",
+     "from": "offline_hold_last",
+     "to": "offline_cached_schedule"
+    },
+    {
+     "time": 2401.0,
+     "event": "connectivity",
+     "from": "offline_cached_schedule",
+     "to": "online"
+    }
+   ],
+   "log_file": "logs/africot_full__outage__2__mock.jsonl"
+  },
+  {
+   "scenario": "outage",
+   "seed": 3,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 26.433231058234185,
+   "safety_violations": 0,
+   "slow_loop_calls": 9,
+   "parse_failures": 0,
+   "novelty_triggers": 0,
+   "novelty_trigger_times": [],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ],
+    [
+     1204.0,
+     "offline_hold_last"
+    ],
+    [
+     1805.0,
+     "offline_cached_schedule"
+    ],
+    [
+     2403.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 1204.0,
+     "event": "connectivity",
+     "from": "online",
+     "to": "offline_hold_last"
+    },
+    {
+     "time": 1805.0,
+     "event": "connectivity",
+     "from": "offline_hold_last",
+     "to": "offline_cached_schedule"
+    },
+    {
+     "time": 2403.0,
+     "event": "connectivity",
+     "from": "offline_cached_schedule",
+     "to": "online"
+    }
+   ],
+   "log_file": "logs/africot_full__outage__3__mock.jsonl"
+  },
+  {
+   "scenario": "outage",
+   "seed": 4,
+   "vlam_backend": "mock",
+   "reportable": false,
+   "completed": true,
+   "awt": 25.278818800247365,
+   "safety_violations": 0,
+   "slow_loop_calls": 11,
+   "parse_failures": 0,
+   "novelty_triggers": 4,
+   "novelty_trigger_times": [
+    2800.0,
+    2938.0,
+    3670.0
+   ],
+   "connectivity_switches_in_log": [
+    [
+     0.0,
+     "online"
+    ],
+    [
+     1208.0,
+     "offline_hold_last"
+    ],
+    [
+     1820.0,
+     "offline_cached_schedule"
+    ],
+    [
+     2413.0,
+     "online"
+    ]
+   ],
+   "coordinator_events": [
+    {
+     "time": 635.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.3339563818763782,
+     "median_prev": 0.6583782476897004
+    },
+    {
+     "time": 1208.0,
+     "event": "connectivity",
+     "from": "online",
+     "to": "offline_hold_last"
+    },
+    {
+     "time": 1820.0,
+     "event": "connectivity",
+     "from": "offline_hold_last",
+     "to": "offline_cached_schedule"
+    },
+    {
+     "time": 2413.0,
+     "event": "connectivity",
+     "from": "offline_cached_schedule",
+     "to": "online"
+    },
+    {
+     "time": 2800.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.145585624823266,
+     "median_prev": 0.9482384189005211
+    },
+    {
+     "time": 2938.0,
+     "event": "novelty_trigger",
+     "recent_error": 2.5114737919554786,
+     "median_prev": 1.1455028082667718
+    },
+    {
+     "time": 3670.0,
+     "event": "novelty_trigger",
+     "recent_error": 1.4164091513025434,
+     "median_prev": 0.6716099567163262
+    }
+   ],
+   "log_file": "logs/africot_full__outage__4__mock.jsonl"
+  }
+ ],
+ "outage_hold_then_cached_all_seeds": true,
+ "incident_novelty_trigger_seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "incident_novelty_triggers_in_window": {
+  "0": [
+   1635.0
+  ],
+  "1": [
+   1943.0
+  ],
+  "2": [
+   1283.0,
+   1403.0
+  ],
+  "3": [
+   1913.0
+  ],
+  "4": [
+   1398.0,
+   1526.0,
+   1648.0
+  ]
+ },
+ "all_completed": true,
+ "total_safety_violations": 0,
+ "git_hash": "06dfee73b2d79eebcae620c71f7069149a98c68c"
+}

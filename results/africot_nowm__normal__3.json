@@ -1,0 +1,142 @@
+{
+ "controller": "africot_nowm",
+ "scenario": "normal",
+ "seed": 3,
+ "seed_role": "evaluation",
+ "vlam_backend": null,
+ "metrics": {
+  "att": 96.77018801410105,
+  "awt": 33.97876615746181,
+  "att_completed": 97.26504559270516,
+  "awt_completed": 33.5015197568389,
+  "awt_by_class": {
+   "car": 34.65688775510205,
+   "danfo": 36.70831168831169,
+   "keke": 29.644030418250946,
+   "okada": 33.309279538904896
+  },
+  "awt_by_arm": {
+   "east": 29.159808481532146,
+   "south": 89.34865030674848,
+   "west": 11.454852713178294
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5565253077975376,
+   "south": 0.5603067484662576,
+   "west": 0.533922480620155
+  },
+  "throughput": 1692,
+  "vehicles_measured": 1702,
+  "completed_trips": 1645,
+  "unfinished": 57,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 17.279151943462896,
+  "ped_count": 283,
+  "aql": 16.00888888888889,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0,
+  "shield_interventions": 21,
+  "decisions": 147,
+  "safety_violations": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 147,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 863,
+    "danfo": 335,
+    "keke": 278,
+    "okada": 377
+   },
+   "pedestrians": 317,
+   "scenario": "normal",
+   "seed": 3
+  },
+  "wall_s": 13.1,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 90,
+    "east": 70,
+    "south": 120,
+    "xS": 60,
+    "xE": 115,
+    "xW": 115
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 18,
+   "max_green": 6
+  },
+  "teleport_reasons": {}
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 300
+   },
+   "mix": {
+    "car": 0.45,
+    "danfo": 0.2,
+    "keke": 0.15,
+    "okada": 0.2
+   },
+   "ped_per_h": 300,
+   "ped_split": {
+    "xE": 0.3333333333333333,
+    "xW": 0.3333333333333333,
+    "xS": 0.3333333333333333
+   },
+   "context": ""
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {},
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
+  },
+  "planner": {
+   "horizon": 3,
+   "samples": 64,
+   "iterations": 4,
+   "elites": 8,
+   "green_mu": 30.0,
+   "green_sd": 15.0
+  },
+  "subgoal": "fixed default",
+  "default_subgoal": {
+   "queue_weights": {
+    "east": 1.0,
+    "west": 1.0,
+    "south": 1.0
+   },
+   "pedestrian_weight": 1.0,
+   "max_wait_s": 120,
+   "transit_priority": 1.0,
+   "valid_for_s": 300
+  }
+ },
+ "git_hash": "2bb5955675d207448e10952e40e2d490a6a65fb7",
+ "created_utc": "2026-10-06T19:54:23Z"
+}

@@ -1,0 +1,163 @@
+{
+ "controller": "africot_full",
+ "scenario": "outage",
+ "seed": 3,
+ "seed_role": "evaluation",
+ "vlam_backend": "hf",
+ "reportable": true,
+ "metrics": {
+  "att": 94.560344395742,
+  "awt": 29.84650594865372,
+  "att_completed": 94.16018158236056,
+  "awt_completed": 28.82036316472114,
+  "awt_by_class": {
+   "car": 31.152151898734175,
+   "danfo": 26.615443425076457,
+   "keke": 27.486781002638526,
+   "okada": 33.040791366906475
+  },
+  "awt_by_arm": {
+   "east": 21.076361149110806,
+   "south": 108.54149321266969,
+   "west": 12.822294573643413
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5661012311901504,
+   "south": 0.4871945701357466,
+   "west": 0.533922480620155
+  },
+  "throughput": 1577,
+  "vehicles_measured": 1597,
+  "completed_trips": 1542,
+  "unfinished": 55,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 11.90929451287794,
+  "ped_count": 893,
+  "aql": 12.3625,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0,
+  "shield_interventions": 76,
+  "decisions": 227,
+  "safety_violations": 0,
+  "slow_loop_calls": 9,
+  "vlam_parse_failures": 1,
+  "novelty_triggers": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 227,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 514,
+    "danfo": 366,
+    "keke": 405,
+    "okada": 453
+   },
+   "pedestrians": 965,
+   "scenario": "outage",
+   "seed": 3
+  },
+  "wall_s": 209.0,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 60,
+    "east": 30,
+    "south": 85,
+    "xS": 55,
+    "xE": 80,
+    "xW": 75
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 76
+  },
+  "wm_1step_queue_mae_mean": 1.2722729471037286,
+  "teleport_reasons": {},
+  "log_file": "../drive/MyDrive/africot/logs/africot_full__outage__3__hf.jsonl",
+  "coordinator_events": [
+   {
+    "time": 1207.0,
+    "event": "connectivity",
+    "from": "online",
+    "to": "offline_hold_last"
+   },
+   {
+    "time": 1812.0,
+    "event": "connectivity",
+    "from": "offline_hold_last",
+    "to": "offline_cached_schedule"
+   },
+   {
+    "time": 2404.0,
+    "event": "connectivity",
+    "from": "offline_cached_schedule",
+    "to": "online"
+   }
+  ],
+  "vlam_latency_mean_s": 19.723555555555556
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 200
+   },
+   "mix": {
+    "car": 0.3,
+    "danfo": 0.2,
+    "keke": 0.25,
+    "okada": 0.25
+   },
+   "ped_per_h": 900,
+   "ped_split": {
+    "xE": 0.4,
+    "xW": 0.4,
+    "xS": 0.2
+   },
+   "context": "market day",
+   "outage": {
+    "start": 1200,
+    "end": 2400
+   }
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {},
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
+  },
+  "vlam_model": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "planner": {
+   "horizon": 3,
+   "samples": 64,
+   "iterations": 4,
+   "elites": 8,
+   "green_mu": 30.0,
+   "green_sd": 15.0
+  },
+  "world_model": "models/world_model.pt",
+  "reportable": true
+ },
+ "git_hash": "cf3e7ed5de546c8e8c5fc2caf049f4ef638cbcf4-dirty",
+ "created_utc": "2026-10-24T12:27:02Z"
+}

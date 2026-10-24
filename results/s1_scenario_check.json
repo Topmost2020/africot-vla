@@ -1,0 +1,818 @@
+{
+ "seeds": [
+  100,
+  101,
+  102,
+  103,
+  104
+ ],
+ "controller": "fixed_time",
+ "runs": [
+  {
+   "scenario": "normal",
+   "seed": 100,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 68.02397474443777,
+   "att": 145.01675886951293,
+   "aql": 29.239444444444445,
+   "throughput": 1619,
+   "unfinished": 75,
+   "ped_wait": 19.766773162939298,
+   "awt_completed": 61.20919974795211,
+   "not_inserted": 1,
+   "not_inserted_by_arm": {
+    "south": 1
+   },
+   "depart_delay_by_arm": {
+    "east": 0.5357964601769911,
+    "south": 20.66936241610738,
+    "west": 0.502372634643377
+   },
+   "okada_lat_sd": 0.8226364701455924,
+   "okada_frac_off_centre_0p5m": 0.6523858388917394,
+   "okada_samples": 3898,
+   "car_lat_sd": 0.24696010700823579,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 821,
+     "danfo": 358,
+     "keke": 255,
+     "okada": 360
+    },
+    "pedestrians": 341,
+    "scenario": "normal",
+    "seed": 100
+   }
+  },
+  {
+   "scenario": "normal",
+   "seed": 101,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 41.03904311872416,
+   "att": 107.25168340224452,
+   "aql": 18.754166666666666,
+   "throughput": 1667,
+   "unfinished": 63,
+   "ped_wait": 18.88095238095238,
+   "awt_completed": 39.42883435582822,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.49426742532005696,
+    "south": 0.5460616438356164,
+    "west": 0.5246131805157593
+   },
+   "okada_lat_sd": 0.8367203664406466,
+   "okada_frac_off_centre_0p5m": 0.6244045437889337,
+   "okada_samples": 2729,
+   "car_lat_sd": 0.2662230970593943,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 810,
+     "danfo": 391,
+     "keke": 291,
+     "okada": 338
+    },
+    "pedestrians": 320,
+    "scenario": "normal",
+    "seed": 101
+   }
+  },
+  {
+   "scenario": "normal",
+   "seed": 102,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 46.62813808715337,
+   "att": 115.92977928692699,
+   "aql": 22.363611111111112,
+   "throughput": 1756,
+   "unfinished": 44,
+   "ped_wait": 19.1231884057971,
+   "awt_completed": 45.33081834010447,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.49885526315789475,
+    "south": 0.5368085106382978,
+    "west": 0.5150482758620689
+   },
+   "okada_lat_sd": 0.7878716239257031,
+   "okada_frac_off_centre_0p5m": 0.5913461538461539,
+   "okada_samples": 2912,
+   "car_lat_sd": 0.26010265832438356,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 877,
+     "danfo": 384,
+     "keke": 287,
+     "okada": 369
+    },
+    "pedestrians": 298,
+    "scenario": "normal",
+    "seed": 102
+   }
+  },
+  {
+   "scenario": "normal",
+   "seed": 103,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 49.480491206791996,
+   "att": 118.43925409338995,
+   "aql": 22.051111111111112,
+   "throughput": 1611,
+   "unfinished": 69,
+   "ped_wait": 19.37062937062937,
+   "awt_completed": 45.892336922102594,
+   "not_inserted": 1,
+   "not_inserted_by_arm": {
+    "east": 1
+   },
+   "depart_delay_by_arm": {
+    "east": 0.5032930513595167,
+    "south": 2.375814696485623,
+    "west": 0.5245103857566765
+   },
+   "okada_lat_sd": 0.8588718280288926,
+   "okada_frac_off_centre_0p5m": 0.6593294954283779,
+   "okada_samples": 2953,
+   "car_lat_sd": 0.271805082472087,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 801,
+     "danfo": 346,
+     "keke": 283,
+     "okada": 365
+    },
+    "pedestrians": 304,
+    "scenario": "normal",
+    "seed": 103
+   }
+  },
+  {
+   "scenario": "normal",
+   "seed": 104,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 23.55569469290399,
+   "att": 83.22176505664878,
+   "aql": 10.475277777777778,
+   "throughput": 1679,
+   "unfinished": 39,
+   "ped_wait": 19.360594795539033,
+   "awt_completed": 23.258852258852258,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.5160140845070422,
+    "south": 0.5638305084745763,
+    "west": 0.5077380952380952
+   },
+   "okada_lat_sd": 0.904541517849416,
+   "okada_frac_off_centre_0p5m": 0.700726392251816,
+   "okada_samples": 2065,
+   "car_lat_sd": 0.2658435218685597,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 819,
+     "danfo": 353,
+     "keke": 258,
+     "okada": 386
+    },
+    "pedestrians": 293,
+    "scenario": "normal",
+    "seed": 104
+   }
+  },
+  {
+   "scenario": "market",
+   "seed": 100,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 63.945050825921214,
+   "att": 137.77097204574335,
+   "aql": 26.4075,
+   "throughput": 1517,
+   "unfinished": 85,
+   "ped_wait": 20.76923076923077,
+   "awt_completed": 54.73063973063973,
+   "not_inserted": 4,
+   "not_inserted_by_arm": {
+    "south": 4
+   },
+   "depart_delay_by_arm": {
+    "east": 0.5387463126843658,
+    "south": 14.258899521531099,
+    "west": 0.5023726346433771
+   },
+   "okada_lat_sd": 0.8971555482238099,
+   "okada_frac_off_centre_0p5m": 0.6464500601684717,
+   "okada_samples": 4155,
+   "car_lat_sd": 0.2849715063786973,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 504,
+     "danfo": 352,
+     "keke": 434,
+     "okada": 407
+    },
+    "pedestrians": 1023,
+    "scenario": "market",
+    "seed": 100
+   }
+  },
+  {
+   "scenario": "market",
+   "seed": 101,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 45.007308887507776,
+   "att": 112.81153511497826,
+   "aql": 19.319444444444443,
+   "throughput": 1566,
+   "unfinished": 77,
+   "ped_wait": 20.696188340807176,
+   "awt_completed": 41.9621409921671,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.4971123755334282,
+    "south": 0.5534134615384615,
+    "west": 0.5260458452722063
+   },
+   "okada_lat_sd": 0.8578400643152021,
+   "okada_frac_off_centre_0p5m": 0.6654080743537613,
+   "okada_samples": 3443,
+   "car_lat_sd": 0.3139875552193948,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 504,
+     "danfo": 353,
+     "keke": 462,
+     "okada": 418
+    },
+    "pedestrians": 967,
+    "scenario": "market",
+    "seed": 101
+   }
+  },
+  {
+   "scenario": "market",
+   "seed": 102,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 43.05667861409797,
+   "att": 110.90076463560335,
+   "aql": 19.302777777777777,
+   "throughput": 1662,
+   "unfinished": 48,
+   "ped_wait": 19.559863169897376,
+   "awt_completed": 38.43972939729397,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.5028026315789473,
+    "south": 0.5256084656084656,
+    "west": 0.5150482758620689
+   },
+   "okada_lat_sd": 0.8513840511238462,
+   "okada_frac_off_centre_0p5m": 0.7123197903014417,
+   "okada_samples": 3052,
+   "car_lat_sd": 0.25600033147849577,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 544,
+     "danfo": 372,
+     "keke": 463,
+     "okada": 439
+    },
+    "pedestrians": 953,
+    "scenario": "market",
+    "seed": 102
+   }
+  },
+  {
+   "scenario": "market",
+   "seed": 103,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 25.606461538461538,
+   "att": 85.76351282051283,
+   "aql": 10.395833333333334,
+   "throughput": 1533,
+   "unfinished": 54,
+   "ped_wait": 21.247990815154996,
+   "awt_completed": 23.27906976744186,
+   "not_inserted": 1,
+   "not_inserted_by_arm": {
+    "east": 1
+   },
+   "depart_delay_by_arm": {
+    "east": 0.5048036253776436,
+    "south": 0.6222321428571428,
+    "west": 0.5334124629080118
+   },
+   "okada_lat_sd": 0.8698790162044048,
+   "okada_frac_off_centre_0p5m": 0.6530382595648913,
+   "okada_samples": 2666,
+   "car_lat_sd": 0.2752151725264021,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 494,
+     "danfo": 321,
+     "keke": 409,
+     "okada": 471
+    },
+    "pedestrians": 942,
+    "scenario": "market",
+    "seed": 103
+   }
+  },
+  {
+   "scenario": "market",
+   "seed": 104,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 47.84671964399237,
+   "att": 115.80221869040052,
+   "aql": 20.5425,
+   "throughput": 1558,
+   "unfinished": 57,
+   "ped_wait": 20.41946308724832,
+   "awt_completed": 45.58839050131926,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.5385492957746479,
+    "south": 0.52,
+    "west": 0.5107142857142857
+   },
+   "okada_lat_sd": 0.8600976961487975,
+   "okada_frac_off_centre_0p5m": 0.5989338350580119,
+   "okada_samples": 3189,
+   "car_lat_sd": 0.27116280303099366,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 510,
+     "danfo": 343,
+     "keke": 421,
+     "okada": 428
+    },
+    "pedestrians": 974,
+    "scenario": "market",
+    "seed": 104
+   }
+  },
+  {
+   "scenario": "incident",
+   "seed": 100,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 74.20196632591701,
+   "att": 156.14003006614553,
+   "aql": 31.861666666666668,
+   "throughput": 1619,
+   "unfinished": 76,
+   "ped_wait": 19.7444089456869,
+   "awt_completed": 67.05229993698802,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.824882005899705,
+    "south": 22.890838926174496,
+    "west": 0.5038282387190685
+   },
+   "okada_lat_sd": 0.8175979841965798,
+   "okada_frac_off_centre_0p5m": 0.652246653919694,
+   "okada_samples": 4184,
+   "car_lat_sd": 0.25635326866694025,
+   "incident": {
+    "closed": 1200.0,
+    "reopened": 2100.0,
+    "lane": "E2C_1",
+    "on_lane_at_close": 3
+   },
+   "demand": {
+    "vehicles": {
+     "car": 821,
+     "danfo": 358,
+     "keke": 255,
+     "okada": 360
+    },
+    "pedestrians": 341,
+    "scenario": "incident",
+    "seed": 100
+   }
+  },
+  {
+   "scenario": "incident",
+   "seed": 101,
+   "teleports": 2,
+   "jam_teleports": 0,
+   "teleport_reasons": {
+    "wrong lane": 2
+   },
+   "sim_end": 3900,
+   "awt": 87.31015948021263,
+   "att": 165.84943886591847,
+   "aql": 27.144166666666667,
+   "throughput": 1666,
+   "unfinished": 64,
+   "ped_wait": 18.952380952380953,
+   "awt_completed": 57.757519950890114,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 69.09881934566145,
+    "south": 0.5460616438356164,
+    "west": 0.5246131805157593
+   },
+   "okada_lat_sd": 0.8030046115349017,
+   "okada_frac_off_centre_0p5m": 0.6770926422400954,
+   "okada_samples": 3357,
+   "car_lat_sd": 0.2939888484308642,
+   "incident": {
+    "closed": 1200.0,
+    "reopened": 2100.0,
+    "lane": "E2C_1",
+    "on_lane_at_close": 4
+   },
+   "demand": {
+    "vehicles": {
+     "car": 810,
+     "danfo": 391,
+     "keke": 291,
+     "okada": 338
+    },
+    "pedestrians": 320,
+    "scenario": "incident",
+    "seed": 101
+   }
+  },
+  {
+   "scenario": "incident",
+   "seed": 102,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 69.90657611771364,
+   "att": 151.24273910582912,
+   "aql": 27.844166666666666,
+   "throughput": 1760,
+   "unfinished": 40,
+   "ped_wait": 18.742753623188406,
+   "awt_completed": 57.39085118702953,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 28.810697368421053,
+    "south": 0.5403546099290781,
+    "west": 0.5136689655172414
+   },
+   "okada_lat_sd": 0.8285670244702611,
+   "okada_frac_off_centre_0p5m": 0.656029296364112,
+   "okada_samples": 3823,
+   "car_lat_sd": 0.2694011614803839,
+   "incident": {
+    "closed": 1200.0,
+    "reopened": 2100.0,
+    "lane": "E2C_1",
+    "on_lane_at_close": 5
+   },
+   "demand": {
+    "vehicles": {
+     "car": 877,
+     "danfo": 384,
+     "keke": 287,
+     "okada": 369
+    },
+    "pedestrians": 298,
+    "scenario": "incident",
+    "seed": 102
+   }
+  },
+  {
+   "scenario": "incident",
+   "seed": 103,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 56.89892662219526,
+   "att": 131.03901152213462,
+   "aql": 25.2,
+   "throughput": 1609,
+   "unfinished": 71,
+   "ped_wait": 19.552447552447553,
+   "awt_completed": 52.8712745719721,
+   "not_inserted": 1,
+   "not_inserted_by_arm": {
+    "east": 1
+   },
+   "depart_delay_by_arm": {
+    "east": 2.095438066465257,
+    "south": 1.8710223642172523,
+    "west": 0.5245103857566765
+   },
+   "okada_lat_sd": 0.8510561129419285,
+   "okada_frac_off_centre_0p5m": 0.7049865631531801,
+   "okada_samples": 3349,
+   "car_lat_sd": 0.2830830182130113,
+   "incident": {
+    "closed": 1200.0,
+    "reopened": 2100.0,
+    "lane": "E2C_1",
+    "on_lane_at_close": 3
+   },
+   "demand": {
+    "vehicles": {
+     "car": 801,
+     "danfo": 346,
+     "keke": 283,
+     "okada": 365
+    },
+    "pedestrians": 304,
+    "scenario": "incident",
+    "seed": 103
+   }
+  },
+  {
+   "scenario": "incident",
+   "seed": 104,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 40.09833035181872,
+   "att": 109.684496124031,
+   "aql": 15.312222222222223,
+   "throughput": 1673,
+   "unfinished": 45,
+   "ped_wait": 19.312267657992564,
+   "awt_completed": 33.520833333333336,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 15.156859154929576,
+    "south": 0.5638305084745762,
+    "west": 0.5092261904761904
+   },
+   "okada_lat_sd": 0.8756718470610233,
+   "okada_frac_off_centre_0p5m": 0.6605339105339105,
+   "okada_samples": 2772,
+   "car_lat_sd": 0.270916561626402,
+   "incident": {
+    "closed": 1200.0,
+    "reopened": 2100.0,
+    "lane": "E2C_1",
+    "on_lane_at_close": 2
+   },
+   "demand": {
+    "vehicles": {
+     "car": 819,
+     "danfo": 353,
+     "keke": 258,
+     "okada": 386
+    },
+    "pedestrians": 293,
+    "scenario": "incident",
+    "seed": 104
+   }
+  },
+  {
+   "scenario": "outage",
+   "seed": 100,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 63.945050825921214,
+   "att": 137.77097204574335,
+   "aql": 26.4075,
+   "throughput": 1517,
+   "unfinished": 85,
+   "ped_wait": 20.76923076923077,
+   "awt_completed": 54.73063973063973,
+   "not_inserted": 4,
+   "not_inserted_by_arm": {
+    "south": 4
+   },
+   "depart_delay_by_arm": {
+    "east": 0.5387463126843658,
+    "south": 14.258899521531099,
+    "west": 0.5023726346433771
+   },
+   "okada_lat_sd": 0.8971555482238099,
+   "okada_frac_off_centre_0p5m": 0.6464500601684717,
+   "okada_samples": 4155,
+   "car_lat_sd": 0.2849715063786973,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 504,
+     "danfo": 352,
+     "keke": 434,
+     "okada": 407
+    },
+    "pedestrians": 1023,
+    "scenario": "outage",
+    "seed": 100
+   }
+  },
+  {
+   "scenario": "outage",
+   "seed": 101,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 45.007308887507776,
+   "att": 112.81153511497826,
+   "aql": 19.319444444444443,
+   "throughput": 1566,
+   "unfinished": 77,
+   "ped_wait": 20.696188340807176,
+   "awt_completed": 41.9621409921671,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.4971123755334282,
+    "south": 0.5534134615384615,
+    "west": 0.5260458452722063
+   },
+   "okada_lat_sd": 0.8578400643152021,
+   "okada_frac_off_centre_0p5m": 0.6654080743537613,
+   "okada_samples": 3443,
+   "car_lat_sd": 0.3139875552193948,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 504,
+     "danfo": 353,
+     "keke": 462,
+     "okada": 418
+    },
+    "pedestrians": 967,
+    "scenario": "outage",
+    "seed": 101
+   }
+  },
+  {
+   "scenario": "outage",
+   "seed": 102,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 43.05667861409797,
+   "att": 110.90076463560335,
+   "aql": 19.302777777777777,
+   "throughput": 1662,
+   "unfinished": 48,
+   "ped_wait": 19.559863169897376,
+   "awt_completed": 38.43972939729397,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.5028026315789473,
+    "south": 0.5256084656084656,
+    "west": 0.5150482758620689
+   },
+   "okada_lat_sd": 0.8513840511238462,
+   "okada_frac_off_centre_0p5m": 0.7123197903014417,
+   "okada_samples": 3052,
+   "car_lat_sd": 0.25600033147849577,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 544,
+     "danfo": 372,
+     "keke": 463,
+     "okada": 439
+    },
+    "pedestrians": 953,
+    "scenario": "outage",
+    "seed": 102
+   }
+  },
+  {
+   "scenario": "outage",
+   "seed": 103,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 25.606461538461538,
+   "att": 85.76351282051283,
+   "aql": 10.395833333333334,
+   "throughput": 1533,
+   "unfinished": 54,
+   "ped_wait": 21.247990815154996,
+   "awt_completed": 23.27906976744186,
+   "not_inserted": 1,
+   "not_inserted_by_arm": {
+    "east": 1
+   },
+   "depart_delay_by_arm": {
+    "east": 0.5048036253776436,
+    "south": 0.6222321428571428,
+    "west": 0.5334124629080118
+   },
+   "okada_lat_sd": 0.8698790162044048,
+   "okada_frac_off_centre_0p5m": 0.6530382595648913,
+   "okada_samples": 2666,
+   "car_lat_sd": 0.2752151725264021,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 494,
+     "danfo": 321,
+     "keke": 409,
+     "okada": 471
+    },
+    "pedestrians": 942,
+    "scenario": "outage",
+    "seed": 103
+   }
+  },
+  {
+   "scenario": "outage",
+   "seed": 104,
+   "teleports": 0,
+   "jam_teleports": 0,
+   "teleport_reasons": {},
+   "sim_end": 3900,
+   "awt": 47.84671964399237,
+   "att": 115.80221869040052,
+   "aql": 20.5425,
+   "throughput": 1558,
+   "unfinished": 57,
+   "ped_wait": 20.41946308724832,
+   "awt_completed": 45.58839050131926,
+   "not_inserted": 0,
+   "not_inserted_by_arm": {},
+   "depart_delay_by_arm": {
+    "east": 0.5385492957746479,
+    "south": 0.52,
+    "west": 0.5107142857142857
+   },
+   "okada_lat_sd": 0.8600976961487975,
+   "okada_frac_off_centre_0p5m": 0.5989338350580119,
+   "okada_samples": 3189,
+   "car_lat_sd": 0.27116280303099366,
+   "incident": null,
+   "demand": {
+    "vehicles": {
+     "car": 510,
+     "danfo": 343,
+     "keke": 421,
+     "okada": 428
+    },
+    "pedestrians": 974,
+    "scenario": "outage",
+    "seed": 104
+   }
+  }
+ ],
+ "all_zero_jam_teleports": true,
+ "max_not_inserted": 4,
+ "no_insertion_backlog": true,
+ "total_teleports_any_reason": 2,
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027"
+}

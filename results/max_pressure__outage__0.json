@@ -1,0 +1,127 @@
+{
+ "controller": "max_pressure",
+ "scenario": "outage",
+ "seed": 0,
+ "seed_role": "evaluation",
+ "vlam_backend": null,
+ "metrics": {
+  "att": 80.3253312302839,
+  "awt": 19.377697160883283,
+  "att_completed": 79.9641485275288,
+  "awt_completed": 18.734314980793854,
+  "awt_by_class": {
+   "car": 19.70177489177489,
+   "danfo": 19.844313725490196,
+   "keke": 19.338571428571427,
+   "okada": 18.71526315789474
+  },
+  "awt_by_arm": {
+   "east": 14.790708092485547,
+   "south": 56.7291133004926,
+   "west": 12.98908695652174
+  },
+  "depart_delay_by_arm": {
+   "east": 0.521921965317919,
+   "south": 0.5222167487684729,
+   "west": 0.499231884057971
+  },
+  "throughput": 1596,
+  "vehicles_measured": 1585,
+  "completed_trips": 1562,
+  "unfinished": 23,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 12.535307517084282,
+  "ped_count": 878,
+  "aql": 7.700833333333334,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0,
+  "shield_interventions": 77,
+  "decisions": 195,
+  "safety_violations": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 195,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 506,
+    "danfo": 332,
+    "keke": 432,
+    "okada": 454
+   },
+   "pedestrians": 953,
+   "scenario": "outage",
+   "seed": 0
+  },
+  "wall_s": 12.1,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 75,
+    "east": 35,
+    "south": 80,
+    "xS": 70,
+    "xE": 85,
+    "xW": 80
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 77
+  },
+  "teleport_reasons": {}
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 200
+   },
+   "mix": {
+    "car": 0.3,
+    "danfo": 0.2,
+    "keke": 0.25,
+    "okada": 0.25
+   },
+   "ped_per_h": 900,
+   "ped_split": {
+    "xE": 0.4,
+    "xW": 0.4,
+    "xS": 0.2
+   },
+   "context": "market day",
+   "outage": {
+    "start": 1200,
+    "end": 2400
+   }
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {
+   "GREEN": 15
+  },
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
+  }
+ },
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:16:29Z"
+}

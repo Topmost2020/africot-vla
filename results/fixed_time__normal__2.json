@@ -1,0 +1,127 @@
+{
+ "controller": "fixed_time",
+ "scenario": "normal",
+ "seed": 2,
+ "seed_role": "evaluation",
+ "vlam_backend": null,
+ "metrics": {
+  "att": 97.20107121836374,
+  "awt": 33.84792230723956,
+  "att_completed": 97.49095295536792,
+  "awt_completed": 33.31845597104946,
+  "awt_by_class": {
+   "car": 31.950726329442286,
+   "danfo": 34.392529411764706,
+   "keke": 38.10079166666666,
+   "okada": 34.58609195402298
+  },
+  "awt_by_arm": {
+   "east": 12.037298050139274,
+   "south": 137.87134545454543,
+   "west": 15.510226628895186
+  },
+  "depart_delay_by_arm": {
+   "east": 0.508050139275766,
+   "south": 0.5586181818181818,
+   "west": 0.5059773371104813
+  },
+  "throughput": 1695,
+  "vehicles_measured": 1699,
+  "completed_trips": 1658,
+  "unfinished": 40,
+  "not_inserted": 1,
+  "not_inserted_by_arm": {
+   "west": 1
+  },
+  "ped_wait": 18.884244372990352,
+  "ped_count": 311,
+  "aql": 15.466111111111111,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0,
+  "shield_interventions": 0,
+  "decisions": 135,
+  "safety_violations": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 135,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 828,
+    "danfo": 367,
+    "keke": 260,
+    "okada": 382
+   },
+   "pedestrians": 340,
+   "scenario": "normal",
+   "seed": 2
+  },
+  "wall_s": 12.7,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 55,
+    "east": 35,
+    "south": 65,
+    "xS": 50,
+    "xE": 60,
+    "xW": 60
+   }
+  },
+  "shield_corrections_by_rule": {},
+  "teleport_reasons": {}
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 300
+   },
+   "mix": {
+    "car": 0.45,
+    "danfo": 0.2,
+    "keke": 0.15,
+    "okada": 0.2
+   },
+   "ped_per_h": 300,
+   "ped_split": {
+    "xE": 0.3333333333333333,
+    "xW": 0.3333333333333333,
+    "xS": 0.3333333333333333
+   },
+   "context": ""
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {
+   "GREENS": {
+    "A": 35,
+    "B": 12,
+    "C": 25
+   }
+  },
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
+  }
+ },
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:11:25Z"
+}

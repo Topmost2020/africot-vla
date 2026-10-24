@@ -1,0 +1,154 @@
+{
+ "controller": "africot_noslow",
+ "scenario": "incident",
+ "seed": 1,
+ "seed_role": "evaluation",
+ "vlam_backend": null,
+ "metrics": {
+  "att": 130.9595644599303,
+  "awt": 49.77257259001161,
+  "att_completed": 125.39004149377594,
+  "awt_completed": 43.27267338470658,
+  "awt_by_class": {
+   "car": 50.83989756722152,
+   "danfo": 44.04886904761904,
+   "keke": 55.61786561264822,
+   "okada": 48.666676136363634
+  },
+  "awt_by_arm": {
+   "east": 57.80768479776848,
+   "south": 123.19364864864865,
+   "west": 10.994273624823697
+  },
+  "depart_delay_by_arm": {
+   "east": 16.475746164574616,
+   "south": 0.5551351351351351,
+   "west": 0.506262341325811
+  },
+  "throughput": 1729,
+  "vehicles_measured": 1722,
+  "completed_trips": 1687,
+  "unfinished": 35,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 15.511111111111111,
+  "ped_count": 315,
+  "aql": 20.10527777777778,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0,
+  "shield_interventions": 69,
+  "decisions": 224,
+  "safety_violations": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 224,
+  "incident": {
+   "closed": 1200.0,
+   "reopened": 2100.0,
+   "lane": "E2C_1",
+   "on_lane_at_close": 7
+  },
+  "demand": {
+   "vehicles": {
+    "car": 840,
+    "danfo": 359,
+    "keke": 277,
+    "okada": 380
+   },
+   "pedestrians": 342,
+   "scenario": "incident",
+   "seed": 1
+  },
+  "wall_s": 18.5,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 60,
+    "east": 35,
+    "south": 120,
+    "xS": 55,
+    "xE": 115,
+    "xW": 120
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 69
+  },
+  "wm_1step_queue_mae_mean": 1.6933930000253135,
+  "teleport_reasons": {}
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 300
+   },
+   "mix": {
+    "car": 0.45,
+    "danfo": 0.2,
+    "keke": 0.15,
+    "okada": 0.2
+   },
+   "ped_per_h": 300,
+   "ped_split": {
+    "xE": 0.3333333333333333,
+    "xW": 0.3333333333333333,
+    "xS": 0.3333333333333333
+   },
+   "context": "incident reported on east approach",
+   "incident": {
+    "edge": "E2C",
+    "lane_index": 1,
+    "start": 1200,
+    "end": 2100
+   }
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {},
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
+  },
+  "planner": {
+   "horizon": 3,
+   "samples": 64,
+   "iterations": 4,
+   "elites": 8,
+   "green_mu": 30.0,
+   "green_sd": 15.0
+  },
+  "subgoal": "fixed default",
+  "default_subgoal": {
+   "queue_weights": {
+    "east": 1.0,
+    "west": 1.0,
+    "south": 1.0
+   },
+   "pedestrian_weight": 1.0,
+   "max_wait_s": 120,
+   "transit_priority": 1.0,
+   "valid_for_s": 300
+  },
+  "world_model": "models/world_model.pt"
+ },
+ "git_hash": "2bb5955675d207448e10952e40e2d490a6a65fb7",
+ "created_utc": "2026-10-06T19:53:43Z"
+}

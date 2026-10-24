@@ -1,0 +1,126 @@
+{
+ "controller": "count_timer",
+ "scenario": "normal",
+ "seed": 1,
+ "seed_role": "evaluation",
+ "vlam_backend": null,
+ "metrics": {
+  "att": 103.0966144018583,
+  "awt": 37.388716608594656,
+  "att_completed": 103.63244837758113,
+  "awt_completed": 37.326253687315635,
+  "awt_by_class": {
+   "car": 37.09213828425096,
+   "danfo": 38.56077380952381,
+   "keke": 36.79177865612648,
+   "okada": 37.35701704545455
+  },
+  "awt_by_arm": {
+   "east": 10.574769874476987,
+   "south": 55.89297297297297,
+   "west": 56.77988716502116
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5385076708507671,
+   "south": 0.5618918918918918,
+   "west": 0.506262341325811
+  },
+  "throughput": 1731,
+  "vehicles_measured": 1722,
+  "completed_trips": 1695,
+  "unfinished": 27,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 10.847619047619048,
+  "ped_count": 315,
+  "aql": 17.502777777777776,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0,
+  "shield_interventions": 71,
+  "decisions": 269,
+  "safety_violations": 0
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 269,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 840,
+    "danfo": 359,
+    "keke": 277,
+    "okada": 380
+   },
+   "pedestrians": 342,
+   "scenario": "normal",
+   "seed": 1
+  },
+  "wall_s": 16.0,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 60,
+    "east": 45,
+    "south": 45,
+    "xS": 55,
+    "xE": 35,
+    "xW": 35
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 71
+  },
+  "teleport_reasons": {}
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 300
+   },
+   "mix": {
+    "car": 0.45,
+    "danfo": 0.2,
+    "keke": 0.15,
+    "okada": 0.2
+   },
+   "ped_per_h": 300,
+   "ped_split": {
+    "xE": 0.3333333333333333,
+    "xW": 0.3333333333333333,
+    "xS": 0.3333333333333333
+   },
+   "context": ""
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {
+   "MIN_GREEN": 10,
+   "STEP": 5,
+   "MAX_GREEN": 60,
+   "QUEUE_THRESHOLD": 3
+  },
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
+  }
+ },
+ "git_hash": "91dca21c21a6289b9e9a8ec1fd2b7004df189027-dirty",
+ "created_utc": "2026-10-06T19:13:15Z"
+}

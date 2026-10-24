@@ -1,0 +1,153 @@
+{
+ "controller": "africot_full",
+ "scenario": "normal",
+ "seed": 3,
+ "seed_role": "evaluation",
+ "vlam_backend": "mock",
+ "reportable": false,
+ "metrics": {
+  "att": 89.37124559341952,
+  "awt": 26.649741480611045,
+  "att_completed": 89.71884406983744,
+  "awt_completed": 26.220349187236604,
+  "awt_by_class": {
+   "car": 26.743622448979593,
+   "danfo": 25.51025974025974,
+   "keke": 25.214372623574146,
+   "okada": 28.536945244956772
+  },
+  "awt_by_arm": {
+   "east": 22.489493844049246,
+   "south": 58.9621472392638,
+   "west": 15.033147286821707
+  },
+  "depart_delay_by_arm": {
+   "east": 0.5537893296853624,
+   "south": 0.5633742331288343,
+   "west": 0.5354728682170543
+  },
+  "throughput": 1702,
+  "vehicles_measured": 1702,
+  "completed_trips": 1661,
+  "unfinished": 41,
+  "not_inserted": 0,
+  "not_inserted_by_arm": {},
+  "ped_wait": 13.424028268551236,
+  "ped_count": 283,
+  "aql": 12.154166666666667,
+  "aql_steps": 3600,
+  "teleports": 0,
+  "jam_teleports": 0,
+  "shield_interventions": 53,
+  "decisions": 226,
+  "safety_violations": 0,
+  "slow_loop_calls": 13,
+  "vlam_parse_failures": 0,
+  "novelty_triggers": 2
+ },
+ "info": {
+  "teleports": 0,
+  "decisions": 226,
+  "incident": null,
+  "demand": {
+   "vehicles": {
+    "car": 863,
+    "danfo": 335,
+    "keke": 278,
+    "okada": 377
+   },
+   "pedestrians": 317,
+   "scenario": "normal",
+   "seed": 3
+  },
+  "wall_s": 14.8,
+  "safety_audit": {
+   "violations": 0,
+   "by_rule": {},
+   "max_no_green_s": {
+    "west": 90,
+    "east": 55,
+    "south": 90,
+    "xS": 95,
+    "xE": 75,
+    "xW": 65
+   }
+  },
+  "shield_corrections_by_rule": {
+   "ped_crossing": 53
+  },
+  "wm_1step_queue_mae_mean": 1.1712032974225404,
+  "teleport_reasons": {},
+  "log_file": "logs/africot_full__normal__3__mock.jsonl",
+  "coordinator_events": [
+   {
+    "time": 891.0,
+    "event": "novelty_trigger",
+    "recent_error": 2.6952934846659202,
+    "median_prev": 1.2798827265582033
+   },
+   {
+    "time": 2719.0,
+    "event": "novelty_trigger",
+    "recent_error": 1.6278134839743827,
+    "median_prev": 0.7695675343162038
+   }
+  ],
+  "vlam_latency_mean_s": 0.0
+ },
+ "config": {
+  "scenario": {
+   "flows": {
+    "W": 700,
+    "E": 700,
+    "S": 300
+   },
+   "mix": {
+    "car": 0.45,
+    "danfo": 0.2,
+    "keke": 0.15,
+    "okada": 0.2
+   },
+   "ped_per_h": 300,
+   "ped_split": {
+    "xE": 0.3333333333333333,
+    "xW": 0.3333333333333333,
+    "xS": 0.3333333333333333
+   },
+   "context": ""
+  },
+  "warmup_s": 300,
+  "measure_s": 3600,
+  "controller_params": {},
+  "perception": {
+   "miss_p": 0.05,
+   "rel_sd": 0.1,
+   "min_sd": 0.5,
+   "clean": false
+  },
+  "shield": {
+   "enabled": true,
+   "min_green": 10,
+   "max_green": 90,
+   "starvation_s": 180,
+   "crossing_times": {
+    "xE": 16,
+    "xS": 10,
+    "xW": 16
+   }
+  },
+  "vlam_model": "mock-rules",
+  "planner": {
+   "horizon": 3,
+   "samples": 64,
+   "iterations": 4,
+   "elites": 8,
+   "green_mu": 30.0,
+   "green_sd": 15.0
+  },
+  "world_model": "models/world_model.pt",
+  "reportable": false
+ },
+ "git_hash": "06dfee73b2d79eebcae620c71f7069149a98c68c",
+ "created_utc": "2026-10-06T20:02:39Z"
+}

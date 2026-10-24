@@ -12,3 +12,4 @@ data/raw/
 *.safetensors
 hf_cache/
 .DS_Store
+data/wm/
