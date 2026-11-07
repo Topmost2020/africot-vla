@@ -21,10 +21,13 @@ class ExplainLog:
         coord = getattr(c, "subgoal_source", None)
         last = getattr(coord, "last_decision", None) or {}
         call = last.get("call") or {}
+        if hasattr(coord, "record_shield"):
+            coord.record_shield(corrections)
         rec = {
             "sim_time": obs["time"], **self.meta,
             "trigger": last.get("trigger", "none"),
             "connectivity": last.get("connectivity", "n/a"),
+            "junction_tier": last.get("tier"),
             "vlam_backend": self.vlam_backend,
             "cot_reasoning": last.get("reasoning"),
             "vlam_parse_ok": call.get("parse_ok"),

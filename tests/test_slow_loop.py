@@ -4,7 +4,7 @@ import json
 import numpy as np
 from PIL import Image
 
-from africot import coordinator as co
+from africot import orchestrator as co
 from africot import renderer
 from africot import scenarios as sc
 from africot import subgoal as sg
@@ -39,7 +39,7 @@ class FakeEnv:
 
 
 def _coord(scenario, tmp_path):
-    c = co.Coordinator(MockVLAM(), sc.get(scenario), image_dir=str(tmp_path))
+    c = co.JunctionOrchestrator(MockVLAM(), sc.get(scenario), image_dir=str(tmp_path))
     c.bind_env(FakeEnv())
     return c
 
@@ -76,7 +76,7 @@ def test_unparseable_response_keeps_previous_subgoal(tmp_path):
         def query(self, image_path, context):
             from africot.vlam import _finish
             return _finish(self, "I am not sure.", context, 0.1)
-    c = co.Coordinator(Broken(), sc.get("normal"), image_dir=str(tmp_path))
+    c = co.JunctionOrchestrator(Broken(), sc.get("normal"), image_dir=str(tmp_path))
     c.bind_env(FakeEnv())
     c.subgoal = dict(sg.DEFAULT_SUBGOAL, max_wait_s=77)
     goal = c(_obs(400))

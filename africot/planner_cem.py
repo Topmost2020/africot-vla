@@ -11,7 +11,7 @@ with the weights from the current subgoal. Only the first step is executed,
 after the shield.
 
 Controller variants:
-- africot_full: subgoal from the slow loop (coordinator, S7)
+- africot_full: subgoal from the slow loop (junction orchestrator, S7)
 - africot_noslow: fixed default subgoal
 - africot_nowm: no world model; scores candidate first steps with a simple
   queue-discharge heuristic from the current queues

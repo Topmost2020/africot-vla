@@ -60,12 +60,15 @@ def build_controller(name, args):
         return ctrl, extra
     if name == "africot_full":
         from africot import planner_cem
-        from africot.coordinator import Coordinator
+        from africot.orchestrator import JunctionOrchestrator, NetworkOrchestrator
         from africot.vlam import make_vlam
         backend = getattr(args, "vlam_backend", None) or "mock"
         vlam = make_vlam(backend, getattr(args, "vlam_model", None))
-        coord = Coordinator(vlam, sc.get(args.scenario))
-        ctrl = planner_cem.CEMPlanner(args.seed, use_world_model=True, subgoal_source=coord, name=name)
+        junction = JunctionOrchestrator(vlam, sc.get(args.scenario), junction_id="J1")
+        network = NetworkOrchestrator("N1")
+        network.register(junction)
+        ctrl = planner_cem.CEMPlanner(args.seed, use_world_model=True, subgoal_source=junction, name=name)
+        ctrl.network_orchestrator = network
         return ctrl, {"vlam_backend": backend, "vlam_model": vlam.model_id, "planner": dict(planner_cem.CEM),
                       "world_model": os.path.relpath(planner_cem.DEFAULT_WM, ROOT),
                       "reportable": backend != "mock"}
@@ -104,6 +107,10 @@ def run(controller, scenario, seed, force=False, results_dir=RESULTS_DIR, args=N
         metrics["vlam_parse_failures"] = coord.parse_failures
         metrics["novelty_triggers"] = sum(1 for ev in coord.events if ev["event"] == "novelty_trigger")
         info["coordinator_events"] = coord.events
+        info["junction_orchestrator"] = {"report": coord.report(), "status_log": coord.status_log}
+        net = getattr(ctrl, "network_orchestrator", None)
+        if net is not None:
+            info["network_orchestrator"] = net.summary()
         lat = [c["latency_s"] for c in coord.calls]
         info["vlam_latency_mean_s"] = float(sum(lat) / len(lat)) if lat else None
     out = {

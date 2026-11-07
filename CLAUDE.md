@@ -4,9 +4,9 @@ Read `SPEC.md` first. It defines what to build and the integrity rules. `STATUS.
 
 ## Shared branch
 
-All agents work on the branch **`claude/africot-build`**, never on `main`.
-- At the start of a run: `git fetch origin`, then `git checkout claude/africot-build`. If the branch does not exist yet, create it from `origin/main` and push it with `-u`.
-- Always `git pull --rebase origin claude/africot-build` before you start and before every push.
+All agents work on the branch **`africot-build`**, never on `main`.
+- At the start of a run: `git fetch origin`, then `git checkout africot-build`. If the branch does not exist yet, create it from `origin/main` and push it with `-u`.
+- Always `git pull --rebase origin africot-build` before you start and before every push.
 - If a push is rejected, pull with rebase and push again. Never force-push.
 
 ## Run locks
